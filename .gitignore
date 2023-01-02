@@ -1,1 +1,3 @@
 cloudfix-linter*
+.vscode
+.gitignore
