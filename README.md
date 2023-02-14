@@ -8,6 +8,7 @@
     1. `aws configure` to setup your AWS account (in default profile)
     2. Using `saml2aws`
     3. Set and export `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_SESSION_TOKEN` as enviroment variables.
+ 3. The region for default profile should also be set to the region where the stack exists
  3. For mock:
     - Run command `python utils/gen_recco.py <stackName>` 
     - This will generate a reccos.json file which will be used to facilitate mock recommendations
