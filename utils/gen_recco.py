@@ -895,7 +895,7 @@ def generate_recos(item):
         return [generate_ec2_cleanup_unused_amis_recco(region, account_id, physical_id, logical_id)]
 
     if item['ResourceType'] == 'AWS::S3::Bucket':
-        return [generate_s3_reco(region, account_id, item['values']['bucket'], item['values']['bucket'])]
+        return [generate_s3_reco(region, account_id, physical_id, logical_id)]
 
     if item['ResourceType'] == 'AWS::EFS::FileSystem':
         return [
