@@ -22,3 +22,5 @@
     2. Choose `CloudFix-service-recommendations` for Cloudfix API recommendations
        - Provide Cloudfix account credentials
  6. Save/Edit cloudformation template file to view recommendations
+
+Note: If you use the given template to deploy multiple stacks(in the same env -> Account+Region), recommendations from all the stacks will be linted along with the stack name for the recommendation
