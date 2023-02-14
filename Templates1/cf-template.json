@@ -4,7 +4,7 @@
         "CloudfixS3": {
             "Type": "AWS::S3::Bucket",
             "Properties": {
-                "BucketName":"cloudfix-linter-test-bucket",
+                "BucketName":"cloudfix-linter-cfn-test-bucket",
                 "Tags":[
                     {
                         "Key":"Owner",
