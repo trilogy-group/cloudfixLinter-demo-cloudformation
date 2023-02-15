@@ -19,10 +19,10 @@
  Default region name [None]: us-east-1
  Default output format [None]:
  ```
- 3. For mock:
+ 3. For viewing **mock recommendations**. Since Cloudfix won't give recommendations for your resources till it has observed behaviour for 14 days, so for a quick preview of the tool mock recommendations can be used to fake Cloudfix recommendations for your resources:
     - Run command `python utils/gen_recco.py <stackName>` 
     - This will generate a reccos.json file which will be used to facilitate mock recommendations
-    - Note: For this step also uses AWS SDK to fetch stacks details from your AWS account
+    - Note: For this step we use AWS SDK to fetch stacks details from your AWS account
  4. Press `Ctrl+Shift+p` to open VS Code command palette
  5. Run `Cloudfix-linter: init` command
     1. Choose `mock-recommendations` for mock recommendation
