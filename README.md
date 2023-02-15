@@ -12,7 +12,13 @@
     ```
     aws cloudformation deploy --template-file Templates1/cf-template.json --stack-name <stackName>
     ```
- 3. The region for default profile should also be set to the region where the stack exists
+ 3. The region for default profile should also be set to the region where the stack exists. Use the command `aws configure`. Following is an example of setting the region to us-east-1
+ ```
+ AWS Access Key ID [****************H44M]: 
+ AWS Secret Access Key [****************9jFj]: 
+ Default region name [None]: us-east-1
+ Default output format [None]:
+ ```
  3. For mock:
     - Run command `python utils/gen_recco.py <stackName>` 
     - This will generate a reccos.json file which will be used to facilitate mock recommendations
