@@ -12,13 +12,13 @@
       AWS Secret Access Key [****************9jFj]: 
       Default region name [None]: us-east-1
       Default output format [None]:
+      ```
  3. Before deploying your stack, you need to edit the `SubnetId` [here](./Templates1/cf-template.json#L22) to the id of a subnet that exists in your account and to which you would like to deploy the resources.
  4. Deploy a stack in your AWS account using the template (No need to do this again if deployed once and that stack isn't deleted). There are two ways to do this:
     - Use AWS [console](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks)
     - Login to aws through CLI, then run this command
       ```
       aws cloudformation deploy --template-file Templates1/cf-template.json --stack-name <stackName>
-      ```
       ```
  5. For viewing **mock recommendations**. Since Cloudfix won't give recommendations for your resources till it has observed behaviour for 14 days, so for a quick preview of the tool mock recommendations can be used to fake Cloudfix recommendations for your resources:
     - Run command `python utils/gen_recco.py <stackName>` 
