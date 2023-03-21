@@ -50,7 +50,7 @@
       ```
    - For testing on lesser resources please use cf-template.json instead of all-resources-template
 
- ** Note : Stack creates IAM roles. Please ensure you have sufficient permissions to create IAM roles **
+ ***Note : Stack creates IAM roles. Please ensure you have sufficient permissions to create IAM roles**
  
  5. For viewing **mock recommendations**. Since Cloudfix won't give recommendations for your resources till it has observed behaviour for 14 days, so for a quick preview of the tool mock recommendations can be used to fake Cloudfix recommendations for your resources:
     - Run command `python utils/gen_recco.py <stackName>`. For demo purpose we have already deployed a stack with name `cloudfix-linter-demo-cloudformation` with given template in Q3. You can use it for demo purpose.
