@@ -10,7 +10,7 @@
 
 | Resource Type   |      Count      |
 |:----------:|:-------------:|
-| AWS::DynamoDB::Table |  1 |
+| AWS::DynamoDB::Table |  1 |   
 | AWS::EC2::Volume     |  1 |
 | AWS::EC2::SecurityGroup |  4 |
 | AWS::IAM::Role       |  2 |
