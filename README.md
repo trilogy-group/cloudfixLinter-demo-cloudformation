@@ -4,7 +4,7 @@
 
 ### Prelimnaries
 
-1. This repo has 2 Cf templates that  will create 47 resources and 5 resources repectively:-
+1. This repo has 2 Cf templates that  will create 23 resources and 5 resources repectively:-
 
   #### Cf-Template : all-resources-template
 
@@ -24,7 +24,6 @@
 | AWS::Neptune::DBInstance | 1 | 
 | AWS::Neptune::DBCluster | 1 |
 | AWS::EC2::NatGateway | 1 | 
-| AWS::CDK::Metadata | 1 |
 
 
 
