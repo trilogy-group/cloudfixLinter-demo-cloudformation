@@ -9,28 +9,28 @@
  -> all-resources-template
 
 | Resource Type   |      Count      |
-|:----------:|:-------------:|
-| aws_nategateway | 1 |
-| aws_subnet | 4 |
-| aws_ec2_subnetRouteTableAssociation | 4 |
-| aws_ec2_route | 4 |
-| aws_ec2_EIP | 2 |
-| aws_ec2_natgateway | 3 |
-| aws_ec2_subnet | 4 |
-| aws_ec2_routeTable | 4 |
-| aws_ec2_internetGateway | 1 |
-| aws_ec2_vpcgatewayAttachment | 1 | 
-| aws_ec2_vpc | 1 | 
-| aws_ec2_securityGroup | 4 |
-| aws_iam_role | 2 |
-| aws_ec2_instance | 2 |
-| aws_iam_instanceProfile | 2 |
-| aws_s3_bucket | 2 |
-| aws_efs_MountTarget | 2 |
-| aws_efs_fileSystem | 1 | 
-| aws_neptune_DBsubnetGroup | 1 |
-| aws_neptune_DBinstance | 1 |
-| aws_neptune_Dbcluster | 1 |
+| AWS::DynamoDB::Table | 1 |
+| AWS::EC2::Volume | 1 |
+| AWS::EC2::SecurityGroup | 4 |
+| AWS::IAM::Role | 2 |
+| AWS::EC2::Instance | 2 |
+| AWS::IAM::InstanceProfile | 2 |
+| AWS::EC2::VPCEndpoint | 1 | 
+| AWS::S3::Bucket | 2 |
+| AWS::EFS::MountTarget | 1 | 
+| AWS::EFS::FileSystem | 1 |
+| AWS::Neptune::DBSubnetGroup | 1 |
+| AWS::EC2::SecurityGroup | 1 |
+| AWS::Neptune::DBInstance | 1 | 
+| AWS::Neptune::DBCluster | 1 |
+| AWS::EC2::NatGateway | 1 | 
+| AWS::CDK::Metadata | 1 |
+
+
+
+
+
+
 
 
 ## Using Extension with Cloudformation
