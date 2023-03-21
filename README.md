@@ -1,5 +1,38 @@
 # cloudfixLinter-demo-cloudformation
 
+## Steps on running the demo
+
+### Prelimnaries
+
+1. This repo has 2 Cf templates that  will create 47 resources and 5 resources repectively:-
+
+ -> all-resources-template
+
+| Resource Type   |      Count      |
+|:----------:|:-------------:|
+| aws_nategateway | 1 |
+| aws_subnet | 4 |
+| aws_ec2_subnetRouteTableAssociation | 4 |
+| aws_ec2_route | 4 |
+| aws_ec2_EIP | 2 |
+| aws_ec2_natgateway | 3 |
+| aws_ec2_subnet | 4 |
+| aws_ec2_routeTable | 4 |
+| aws_ec2_internetGateway | 1 |
+| aws_ec2_vpcgatewayAttachment | 1 | 
+| aws_ec2_vpc | 1 | 
+| aws_ec2_securityGroup | 4 |
+| aws_iam_role | 2 |
+| aws_ec2_instance | 2 |
+| aws_iam_instanceProfile | 2 |
+| aws_s3_bucket | 2 |
+| aws_efs_MountTarget | 2 |
+| aws_efs_fileSystem | 1 | 
+| aws_neptune_DBsubnetGroup | 1 |
+| aws_neptune_DBinstance | 1 |
+| aws_neptune_Dbcluster | 1 |
+
+
 ## Using Extension with Cloudformation
  1. Login to AWS using terminal (in default profile) by any of the following options:
     - `aws configure` to login with permanent credentials (using `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`)
