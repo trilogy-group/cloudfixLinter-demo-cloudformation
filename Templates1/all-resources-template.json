@@ -1,6 +1,6 @@
 {
     "Resources": {
-     "cloudfixlinterDynamodbcdkE8C89F99": {
+     "cloudfixlintercdk34438F11": {
       "Type": "AWS::DynamoDB::Table",
       "Properties": {
        "KeySchema": [
@@ -30,13 +30,13 @@
       "UpdateReplacePolicy": "Retain",
       "DeletionPolicy": "Retain",
       "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfixlinter-Dynamodb-cdk/Resource"
+       "aws:cdk:path": "CdkStack/cloudfixlinter-cdk/Resource"
       }
      },
      "DataVolume175940C2": {
       "Type": "AWS::EC2::Volume",
       "Properties": {
-       "AvailabilityZone": "us-east-1",
+       "AvailabilityZone": "us-east-1a",
        "MultiAttachEnabled": false,
        "Size": 10,
        "Tags": [
@@ -956,7 +956,7 @@
        "aws:cdk:path": "CdkStack/cloudfix-MyVpcEndpoint-cdk/Resource"
       }
      },
-     "cloudfixRemoteS3Bucketcdk192993C76": {
+     "cloudfixs31cdk1C96FDB49": {
       "Type": "AWS::S3::Bucket",
       "Properties": {
        "AccessControl": "Private",
@@ -978,14 +978,23 @@
       "UpdateReplacePolicy": "Retain",
       "DeletionPolicy": "Retain",
       "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-RemoteS3Bucket-cdk-1/Resource"
+       "aws:cdk:path": "CdkStack/cloudfix-s3-1-cdk-1/Resource"
       }
      },
-     "cloudfixRemoteS3Bucketcdk24F17E0A3": {
+     "cloudfixs32cdk232B710AA": {
       "Type": "AWS::S3::Bucket",
       "Properties": {
        "AccessControl": "PublicReadWrite",
-       "BucketName": "cloudfix-s3-bucket-1",
+       "BucketEncryption": {
+        "ServerSideEncryptionConfiguration": [
+         {
+          "ServerSideEncryptionByDefault": {
+           "SSEAlgorithm": "AES256"
+          }
+         }
+        ]
+       },
+       "BucketName": "cloudfix-s3-bucket-2",
        "Tags": [
         {
          "Key": "Owner",
@@ -1003,7 +1012,7 @@
       "UpdateReplacePolicy": "Retain",
       "DeletionPolicy": "Retain",
       "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-RemoteS3Bucket-cdk-2/Resource"
+       "aws:cdk:path": "CdkStack/cloudfix-s3-2-cdk-2/Resource"
       }
      },
      "cloudfixMyFileSystemcdk91F94860": {
@@ -1228,7 +1237,7 @@
      "CDKMetadata": {
       "Type": "AWS::CDK::Metadata",
       "Properties": {
-       "Analytics": "v2:deflate64:H4sIAAAAAAAA/11Sy27CMBD8Fu6OeapVb4VAEYdWUYK4VhtnKYbEjvwARVb+vc4LaE87OzsZz64yo26+oLMR3HTAskuQ85S6xAC7EE99u6wSUMjMk3tIcyThUbSgJshm1B1kbouW7dGhZG0XhSSyac5ZYlOBpuEeKJbW4N2v4x/cUmvJOBguxV3cgM0uasoXmC0YvEFFIsWvHj6Md8Kg8ngQdEn6bmn8WqcChSE7oQ0IhiRBZhU31VZJW7Zh/hN3ae/iF9yIrJRcmN5+aGvCoaAult1aQx0MIiWPvDmcnlO3suzSRe6QP+dRU/fhBUmlDRbN6G/3Ka0we1A/jVpgaaxA6vxgveoOcI+8XoW59Z+prhkC1DWJUUurWJsrAgUF9qrnQShFxpvr1+TljU4CyMsT0Mnovf9Hxk3tA/RDtwYDKWgcHn5K5J8VMkN61uPrdEGnr97qrDkPlN+HF0jjrv4C0i9YJooCAAA="
+       "Analytics": "v2:deflate64:H4sIAAAAAAAA/11Sy27CMBD8lt6NoVBV6q0QKOLQKkoQ12rjLMWQ2JEfoMjKv9fOC9rTzs5OxrOrzKlbvND5E9z0hOWXScEz6lID7EI89e3yWkApc0/uISuQREfRgoYgm1N3kIUtW7ZHh4q1XRyR2GYFZ6nNBJrA3VEircHRr+Pv3FJryTgYLsUoDmCzi0P5ArMFgzeoSaz41cO78U4YVB4Pgi5J3y2NX+tUojBkJ7QBwZCkyKzipt4qaas2zH9ilPYufsGNyCvJhenth7YhHErqEtmtNdTBIFbyyMPh9IK6lWWXLnKH/DmPmroPL0hrbbAMo7/dp7TC7EH9BLXAyliB1PnBetUdYIy8XkWF9Z+prhkCNA1JUEurWJsrBgUl9qrHQSRFzsP1G/L6RmcTKKoT0NnTe/+PTEPtA/RDtwYDGWgcHn5I5J8VMkd61tPrs//VZt7qrDmfKL8PL5EmXf0F9q6tIooCAAA="
       },
       "Metadata": {
        "aws:cdk:path": "CdkStack/CDKMetadata/Default"
