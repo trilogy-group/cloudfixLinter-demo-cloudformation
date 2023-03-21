@@ -6,24 +6,25 @@
 
 1. This repo has 2 Cf templates that  will create 23 resources and 5 resources repectively:-
 
-  #### Cf-Template : all-resources-template
+#### Cf-Template : all-resources-template
+
 | Resource Type   |      Count      |
 |:----------:|:-------------:|
-| AWS::DynamoDB::Table | 1 |
-| AWS::EC2::Volume     | 1 |
-| AWS::EC2::SecurityGroup | 4 |
-| AWS::IAM::Role       | 2 |
-| AWS::EC2::Instance   | 2 |
-| AWS::IAM::InstanceProfile | 2 |
-| AWS::EC2::VPCEndpoint| 1 | 
-| AWS::S3::Bucket      | 2 |
-| AWS::EFS::MountTarget| 1 | 
-| AWS::EFS::FileSystem | 1 |
-| AWS::Neptune::DBSubnetGroup | 1 |
-| AWS::EC2::SecurityGroup  | 1 |
-| AWS::Neptune::DBInstance | 1 | 
-| AWS::Neptune::DBCluster | 1 |
-| AWS::EC2::NatGateway | 1 | 
+| AWS::DynamoDB::Table |  1 |
+| AWS::EC2::Volume     |  1 |
+| AWS::EC2::SecurityGroup |  4 |
+| AWS::IAM::Role       |  2 |
+| AWS::EC2::Instance   |  2 |
+| AWS::IAM::InstanceProfile |  2 |
+| AWS::EC2::VPCEndpoint|  1 | 
+| AWS::S3::Bucket      |  2 |
+| AWS::EFS::MountTarget|  1 | 
+| AWS::EFS::FileSystem |  1 |
+| AWS::Neptune::DBSubnetGroup |  1 |
+| AWS::EC2::SecurityGroup  |  1 |
+| AWS::Neptune::DBInstance |  1 | 
+| AWS::Neptune::DBCluster |  1 |
+| AWS::EC2::NatGateway |  1 | 
 
 
 
