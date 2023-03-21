@@ -26,12 +26,6 @@
 | AWS::EC2::NatGateway | 1 | 
 
 
-
-
-
-
-
-
 ## Using Extension with Cloudformation
  1. Login to AWS using terminal (in default profile) by any of the following options:
     - `aws configure` to login with permanent credentials (using `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`)
