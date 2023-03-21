@@ -44,8 +44,12 @@
     - Use AWS [console](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks)
     - Login to aws through CLI, then run this command
       ```
-      aws cloudformation deploy --template-file Templates1/cf-template.json --stack-name <stackName>
+      aws cloudformation deploy --template-file Templates1/all-resources-template.json --stack-name <stackName> --capabilities CAPABILITY_IAM
       ```
+   - For testing on lesser resources please use cf-template.json instead of all-resources-template
+
+ ** Note : Stack creates IAM roles. Please ensure you have sufficient permissions to create IAM roles **
+ 
  5. For viewing **mock recommendations**. Since Cloudfix won't give recommendations for your resources till it has observed behaviour for 14 days, so for a quick preview of the tool mock recommendations can be used to fake Cloudfix recommendations for your resources:
     - Run command `python utils/gen_recco.py <stackName>`. For demo purpose we have already deployed a stack with name `cloudfix-linter-demo-cloudformation` with given template in Q3. You can use it for demo purpose.
     - This will generate a reccos.json file which will be used to facilitate mock recommendations
@@ -58,3 +62,8 @@
  8. Save/Edit cloudformation template file to view recommendations
 
 Note: If you use the given template to deploy multiple stacks(in the same env -> Account+Region), recommendations from all the stacks will be linted along with the stack name for the recommendation
+
+
+### FAQ
+
+1. Not able to deploy the stack in aws account
