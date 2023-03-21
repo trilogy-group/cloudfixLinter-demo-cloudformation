@@ -6,7 +6,7 @@
 
 1. This repo has 2 Cf templates that  will create 47 resources and 5 resources repectively:-
 
- -> all-resources-template
+  #### Cf-Template : all-resources-template
 
 | Resource Type   |      Count      |
 | AWS::DynamoDB::Table | 1 |
