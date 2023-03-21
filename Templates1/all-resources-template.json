@@ -57,570 +57,6 @@
        "aws:cdk:path": "CdkStack/DataVolume/Resource"
       }
      },
-     "cloudfixvpccdkC77C283D": {
-      "Type": "AWS::EC2::VPC",
-      "Properties": {
-       "CidrBlock": "10.0.0.0/16",
-       "EnableDnsHostnames": true,
-       "EnableDnsSupport": true,
-       "InstanceTenancy": "default",
-       "Tags": [
-        {
-         "Key": "Name",
-         "Value": "CdkStack/cloudfix-vpc-cdk"
-        },
-        {
-         "Key": "Owner",
-         "Value": "ankush.pandey@trilogy.com"
-        },
-        {
-         "Key": "Project",
-         "Value": "cloudfix-linter-cdk"
-        }
-       ]
-      },
-      "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-vpc-cdk/Resource"
-      }
-     },
-     "cloudfixvpccdkPublicSubnet1Subnet1D73455E": {
-      "Type": "AWS::EC2::Subnet",
-      "Properties": {
-       "VpcId": {
-        "Ref": "cloudfixvpccdkC77C283D"
-       },
-       "AvailabilityZone": {
-        "Fn::Select": [
-         0,
-         {
-          "Fn::GetAZs": ""
-         }
-        ]
-       },
-       "CidrBlock": "10.0.0.0/18",
-       "MapPublicIpOnLaunch": true,
-       "Tags": [
-        {
-         "Key": "aws-cdk:subnet-name",
-         "Value": "Public"
-        },
-        {
-         "Key": "aws-cdk:subnet-type",
-         "Value": "Public"
-        },
-        {
-         "Key": "Name",
-         "Value": "CdkStack/cloudfix-vpc-cdk/PublicSubnet1"
-        },
-        {
-         "Key": "Owner",
-         "Value": "ankush.pandey@trilogy.com"
-        },
-        {
-         "Key": "Project",
-         "Value": "cloudfix-linter-cdk"
-        }
-       ]
-      },
-      "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-vpc-cdk/PublicSubnet1/Subnet"
-      }
-     },
-     "cloudfixvpccdkPublicSubnet1RouteTable9F5E499A": {
-      "Type": "AWS::EC2::RouteTable",
-      "Properties": {
-       "VpcId": {
-        "Ref": "cloudfixvpccdkC77C283D"
-       },
-       "Tags": [
-        {
-         "Key": "Name",
-         "Value": "CdkStack/cloudfix-vpc-cdk/PublicSubnet1"
-        },
-        {
-         "Key": "Owner",
-         "Value": "ankush.pandey@trilogy.com"
-        },
-        {
-         "Key": "Project",
-         "Value": "cloudfix-linter-cdk"
-        }
-       ]
-      },
-      "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-vpc-cdk/PublicSubnet1/RouteTable"
-      }
-     },
-     "cloudfixvpccdkPublicSubnet1RouteTableAssociationB3E77688": {
-      "Type": "AWS::EC2::SubnetRouteTableAssociation",
-      "Properties": {
-       "RouteTableId": {
-        "Ref": "cloudfixvpccdkPublicSubnet1RouteTable9F5E499A"
-       },
-       "SubnetId": {
-        "Ref": "cloudfixvpccdkPublicSubnet1Subnet1D73455E"
-       }
-      },
-      "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-vpc-cdk/PublicSubnet1/RouteTableAssociation"
-      }
-     },
-     "cloudfixvpccdkPublicSubnet1DefaultRoute5CB43A1D": {
-      "Type": "AWS::EC2::Route",
-      "Properties": {
-       "RouteTableId": {
-        "Ref": "cloudfixvpccdkPublicSubnet1RouteTable9F5E499A"
-       },
-       "DestinationCidrBlock": "0.0.0.0/0",
-       "GatewayId": {
-        "Ref": "cloudfixvpccdkIGWC0C34F05"
-       }
-      },
-      "DependsOn": [
-       "cloudfixvpccdkVPCGW25A30DEE"
-      ],
-      "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-vpc-cdk/PublicSubnet1/DefaultRoute"
-      }
-     },
-     "cloudfixvpccdkPublicSubnet1EIP3435FB3A": {
-      "Type": "AWS::EC2::EIP",
-      "Properties": {
-       "Domain": "vpc",
-       "Tags": [
-        {
-         "Key": "Name",
-         "Value": "CdkStack/cloudfix-vpc-cdk/PublicSubnet1"
-        },
-        {
-         "Key": "Owner",
-         "Value": "ankush.pandey@trilogy.com"
-        },
-        {
-         "Key": "Project",
-         "Value": "cloudfix-linter-cdk"
-        }
-       ]
-      },
-      "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-vpc-cdk/PublicSubnet1/EIP"
-      }
-     },
-     "cloudfixvpccdkPublicSubnet1NATGateway6CD0ACA4": {
-      "Type": "AWS::EC2::NatGateway",
-      "Properties": {
-       "SubnetId": {
-        "Ref": "cloudfixvpccdkPublicSubnet1Subnet1D73455E"
-       },
-       "AllocationId": {
-        "Fn::GetAtt": [
-         "cloudfixvpccdkPublicSubnet1EIP3435FB3A",
-         "AllocationId"
-        ]
-       },
-       "Tags": [
-        {
-         "Key": "Name",
-         "Value": "CdkStack/cloudfix-vpc-cdk/PublicSubnet1"
-        },
-        {
-         "Key": "Owner",
-         "Value": "ankush.pandey@trilogy.com"
-        },
-        {
-         "Key": "Project",
-         "Value": "cloudfix-linter-cdk"
-        }
-       ]
-      },
-      "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-vpc-cdk/PublicSubnet1/NATGateway"
-      }
-     },
-     "cloudfixvpccdkPublicSubnet2Subnet6AD4571C": {
-      "Type": "AWS::EC2::Subnet",
-      "Properties": {
-       "VpcId": {
-        "Ref": "cloudfixvpccdkC77C283D"
-       },
-       "AvailabilityZone": {
-        "Fn::Select": [
-         1,
-         {
-          "Fn::GetAZs": ""
-         }
-        ]
-       },
-       "CidrBlock": "10.0.64.0/18",
-       "MapPublicIpOnLaunch": true,
-       "Tags": [
-        {
-         "Key": "aws-cdk:subnet-name",
-         "Value": "Public"
-        },
-        {
-         "Key": "aws-cdk:subnet-type",
-         "Value": "Public"
-        },
-        {
-         "Key": "Name",
-         "Value": "CdkStack/cloudfix-vpc-cdk/PublicSubnet2"
-        },
-        {
-         "Key": "Owner",
-         "Value": "ankush.pandey@trilogy.com"
-        },
-        {
-         "Key": "Project",
-         "Value": "cloudfix-linter-cdk"
-        }
-       ]
-      },
-      "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-vpc-cdk/PublicSubnet2/Subnet"
-      }
-     },
-     "cloudfixvpccdkPublicSubnet2RouteTableF3CDB023": {
-      "Type": "AWS::EC2::RouteTable",
-      "Properties": {
-       "VpcId": {
-        "Ref": "cloudfixvpccdkC77C283D"
-       },
-       "Tags": [
-        {
-         "Key": "Name",
-         "Value": "CdkStack/cloudfix-vpc-cdk/PublicSubnet2"
-        },
-        {
-         "Key": "Owner",
-         "Value": "ankush.pandey@trilogy.com"
-        },
-        {
-         "Key": "Project",
-         "Value": "cloudfix-linter-cdk"
-        }
-       ]
-      },
-      "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-vpc-cdk/PublicSubnet2/RouteTable"
-      }
-     },
-     "cloudfixvpccdkPublicSubnet2RouteTableAssociation22FF7A91": {
-      "Type": "AWS::EC2::SubnetRouteTableAssociation",
-      "Properties": {
-       "RouteTableId": {
-        "Ref": "cloudfixvpccdkPublicSubnet2RouteTableF3CDB023"
-       },
-       "SubnetId": {
-        "Ref": "cloudfixvpccdkPublicSubnet2Subnet6AD4571C"
-       }
-      },
-      "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-vpc-cdk/PublicSubnet2/RouteTableAssociation"
-      }
-     },
-     "cloudfixvpccdkPublicSubnet2DefaultRoute9570BD28": {
-      "Type": "AWS::EC2::Route",
-      "Properties": {
-       "RouteTableId": {
-        "Ref": "cloudfixvpccdkPublicSubnet2RouteTableF3CDB023"
-       },
-       "DestinationCidrBlock": "0.0.0.0/0",
-       "GatewayId": {
-        "Ref": "cloudfixvpccdkIGWC0C34F05"
-       }
-      },
-      "DependsOn": [
-       "cloudfixvpccdkVPCGW25A30DEE"
-      ],
-      "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-vpc-cdk/PublicSubnet2/DefaultRoute"
-      }
-     },
-     "cloudfixvpccdkPublicSubnet2EIP2CE4FEAB": {
-      "Type": "AWS::EC2::EIP",
-      "Properties": {
-       "Domain": "vpc",
-       "Tags": [
-        {
-         "Key": "Name",
-         "Value": "CdkStack/cloudfix-vpc-cdk/PublicSubnet2"
-        },
-        {
-         "Key": "Owner",
-         "Value": "ankush.pandey@trilogy.com"
-        },
-        {
-         "Key": "Project",
-         "Value": "cloudfix-linter-cdk"
-        }
-       ]
-      },
-      "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-vpc-cdk/PublicSubnet2/EIP"
-      }
-     },
-     "cloudfixvpccdkPublicSubnet2NATGatewayD7FC08B8": {
-      "Type": "AWS::EC2::NatGateway",
-      "Properties": {
-       "SubnetId": {
-        "Ref": "cloudfixvpccdkPublicSubnet2Subnet6AD4571C"
-       },
-       "AllocationId": {
-        "Fn::GetAtt": [
-         "cloudfixvpccdkPublicSubnet2EIP2CE4FEAB",
-         "AllocationId"
-        ]
-       },
-       "Tags": [
-        {
-         "Key": "Name",
-         "Value": "CdkStack/cloudfix-vpc-cdk/PublicSubnet2"
-        },
-        {
-         "Key": "Owner",
-         "Value": "ankush.pandey@trilogy.com"
-        },
-        {
-         "Key": "Project",
-         "Value": "cloudfix-linter-cdk"
-        }
-       ]
-      },
-      "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-vpc-cdk/PublicSubnet2/NATGateway"
-      }
-     },
-     "cloudfixvpccdkPrivateSubnet1Subnet9E2CD300": {
-      "Type": "AWS::EC2::Subnet",
-      "Properties": {
-       "VpcId": {
-        "Ref": "cloudfixvpccdkC77C283D"
-       },
-       "AvailabilityZone": {
-        "Fn::Select": [
-         0,
-         {
-          "Fn::GetAZs": ""
-         }
-        ]
-       },
-       "CidrBlock": "10.0.128.0/18",
-       "MapPublicIpOnLaunch": false,
-       "Tags": [
-        {
-         "Key": "aws-cdk:subnet-name",
-         "Value": "Private"
-        },
-        {
-         "Key": "aws-cdk:subnet-type",
-         "Value": "Private"
-        },
-        {
-         "Key": "Name",
-         "Value": "CdkStack/cloudfix-vpc-cdk/PrivateSubnet1"
-        },
-        {
-         "Key": "Owner",
-         "Value": "ankush.pandey@trilogy.com"
-        },
-        {
-         "Key": "Project",
-         "Value": "cloudfix-linter-cdk"
-        }
-       ]
-      },
-      "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-vpc-cdk/PrivateSubnet1/Subnet"
-      }
-     },
-     "cloudfixvpccdkPrivateSubnet1RouteTableD297AA59": {
-      "Type": "AWS::EC2::RouteTable",
-      "Properties": {
-       "VpcId": {
-        "Ref": "cloudfixvpccdkC77C283D"
-       },
-       "Tags": [
-        {
-         "Key": "Name",
-         "Value": "CdkStack/cloudfix-vpc-cdk/PrivateSubnet1"
-        },
-        {
-         "Key": "Owner",
-         "Value": "ankush.pandey@trilogy.com"
-        },
-        {
-         "Key": "Project",
-         "Value": "cloudfix-linter-cdk"
-        }
-       ]
-      },
-      "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-vpc-cdk/PrivateSubnet1/RouteTable"
-      }
-     },
-     "cloudfixvpccdkPrivateSubnet1RouteTableAssociation9AE8CDA0": {
-      "Type": "AWS::EC2::SubnetRouteTableAssociation",
-      "Properties": {
-       "RouteTableId": {
-        "Ref": "cloudfixvpccdkPrivateSubnet1RouteTableD297AA59"
-       },
-       "SubnetId": {
-        "Ref": "cloudfixvpccdkPrivateSubnet1Subnet9E2CD300"
-       }
-      },
-      "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-vpc-cdk/PrivateSubnet1/RouteTableAssociation"
-      }
-     },
-     "cloudfixvpccdkPrivateSubnet1DefaultRoute785E3B09": {
-      "Type": "AWS::EC2::Route",
-      "Properties": {
-       "RouteTableId": {
-        "Ref": "cloudfixvpccdkPrivateSubnet1RouteTableD297AA59"
-       },
-       "DestinationCidrBlock": "0.0.0.0/0",
-       "NatGatewayId": {
-        "Ref": "cloudfixvpccdkPublicSubnet1NATGateway6CD0ACA4"
-       }
-      },
-      "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-vpc-cdk/PrivateSubnet1/DefaultRoute"
-      }
-     },
-     "cloudfixvpccdkPrivateSubnet2Subnet7788FA1E": {
-      "Type": "AWS::EC2::Subnet",
-      "Properties": {
-       "VpcId": {
-        "Ref": "cloudfixvpccdkC77C283D"
-       },
-       "AvailabilityZone": {
-        "Fn::Select": [
-         1,
-         {
-          "Fn::GetAZs": ""
-         }
-        ]
-       },
-       "CidrBlock": "10.0.192.0/18",
-       "MapPublicIpOnLaunch": false,
-       "Tags": [
-        {
-         "Key": "aws-cdk:subnet-name",
-         "Value": "Private"
-        },
-        {
-         "Key": "aws-cdk:subnet-type",
-         "Value": "Private"
-        },
-        {
-         "Key": "Name",
-         "Value": "CdkStack/cloudfix-vpc-cdk/PrivateSubnet2"
-        },
-        {
-         "Key": "Owner",
-         "Value": "ankush.pandey@trilogy.com"
-        },
-        {
-         "Key": "Project",
-         "Value": "cloudfix-linter-cdk"
-        }
-       ]
-      },
-      "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-vpc-cdk/PrivateSubnet2/Subnet"
-      }
-     },
-     "cloudfixvpccdkPrivateSubnet2RouteTable788C5BE8": {
-      "Type": "AWS::EC2::RouteTable",
-      "Properties": {
-       "VpcId": {
-        "Ref": "cloudfixvpccdkC77C283D"
-       },
-       "Tags": [
-        {
-         "Key": "Name",
-         "Value": "CdkStack/cloudfix-vpc-cdk/PrivateSubnet2"
-        },
-        {
-         "Key": "Owner",
-         "Value": "ankush.pandey@trilogy.com"
-        },
-        {
-         "Key": "Project",
-         "Value": "cloudfix-linter-cdk"
-        }
-       ]
-      },
-      "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-vpc-cdk/PrivateSubnet2/RouteTable"
-      }
-     },
-     "cloudfixvpccdkPrivateSubnet2RouteTableAssociationE99D1BFD": {
-      "Type": "AWS::EC2::SubnetRouteTableAssociation",
-      "Properties": {
-       "RouteTableId": {
-        "Ref": "cloudfixvpccdkPrivateSubnet2RouteTable788C5BE8"
-       },
-       "SubnetId": {
-        "Ref": "cloudfixvpccdkPrivateSubnet2Subnet7788FA1E"
-       }
-      },
-      "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-vpc-cdk/PrivateSubnet2/RouteTableAssociation"
-      }
-     },
-     "cloudfixvpccdkPrivateSubnet2DefaultRouteC8B147E2": {
-      "Type": "AWS::EC2::Route",
-      "Properties": {
-       "RouteTableId": {
-        "Ref": "cloudfixvpccdkPrivateSubnet2RouteTable788C5BE8"
-       },
-       "DestinationCidrBlock": "0.0.0.0/0",
-       "NatGatewayId": {
-        "Ref": "cloudfixvpccdkPublicSubnet2NATGatewayD7FC08B8"
-       }
-      },
-      "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-vpc-cdk/PrivateSubnet2/DefaultRoute"
-      }
-     },
-     "cloudfixvpccdkIGWC0C34F05": {
-      "Type": "AWS::EC2::InternetGateway",
-      "Properties": {
-       "Tags": [
-        {
-         "Key": "Name",
-         "Value": "CdkStack/cloudfix-vpc-cdk"
-        },
-        {
-         "Key": "Owner",
-         "Value": "ankush.pandey@trilogy.com"
-        },
-        {
-         "Key": "Project",
-         "Value": "cloudfix-linter-cdk"
-        }
-       ]
-      },
-      "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-vpc-cdk/IGW"
-      }
-     },
-     "cloudfixvpccdkVPCGW25A30DEE": {
-      "Type": "AWS::EC2::VPCGatewayAttachment",
-      "Properties": {
-       "VpcId": {
-        "Ref": "cloudfixvpccdkC77C283D"
-       },
-       "InternetGatewayId": {
-        "Ref": "cloudfixvpccdkIGWC0C34F05"
-       }
-      },
-      "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-vpc-cdk/VPCGW"
-      }
-     },
      "AppServerInstanceSecurityGroup9DAF0DF6": {
       "Type": "AWS::EC2::SecurityGroup",
       "Properties": {
@@ -646,9 +82,7 @@
          "Value": "cloudfix-linter-cdk"
         }
        ],
-       "VpcId": {
-        "Ref": "cloudfixvpccdkC77C283D"
-       }
+       "VpcId": "vpc-02badd8abb988e06e"
       },
       "Metadata": {
        "aws:cdk:path": "CdkStack/AppServer/InstanceSecurityGroup/Resource"
@@ -714,14 +148,7 @@
      "AppServer33D3A8FF": {
       "Type": "AWS::EC2::Instance",
       "Properties": {
-       "AvailabilityZone": {
-        "Fn::Select": [
-         0,
-         {
-          "Fn::GetAZs": ""
-         }
-        ]
-       },
+       "AvailabilityZone": "us-east-1a",
        "IamInstanceProfile": {
         "Ref": "AppServerInstanceProfileFDED9889"
        },
@@ -737,9 +164,7 @@
          ]
         }
        ],
-       "SubnetId": {
-        "Ref": "cloudfixvpccdkPrivateSubnet1Subnet9E2CD300"
-       },
+       "SubnetId": "subnet-0a1186feed91f0165",
        "Tags": [
         {
          "Key": "Name",
@@ -790,9 +215,7 @@
          "Value": "cloudfix-linter-cdk"
         }
        ],
-       "VpcId": {
-        "Ref": "cloudfixvpccdkC77C283D"
-       }
+       "VpcId": "vpc-02badd8abb988e06e"
       },
       "Metadata": {
        "aws:cdk:path": "CdkStack/cloudfix-instance-appserver-ckd/InstanceSecurityGroup/Resource"
@@ -858,19 +281,18 @@
      "cloudfixinstanceappserverckdA3B71B3E": {
       "Type": "AWS::EC2::Instance",
       "Properties": {
-       "AvailabilityZone": {
-        "Fn::Select": [
-         0,
-         {
-          "Fn::GetAZs": ""
-         }
-        ]
-       },
+       "AvailabilityZone": "us-east-1a",
        "IamInstanceProfile": {
         "Ref": "cloudfixinstanceappserverckdInstanceProfile2A929D83"
        },
        "ImageId": {
-        "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamznamihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter"
+        "Fn::FindInMap": [
+         "cloudfixinstanceappserverckdAmiMap762ED6E5",
+         {
+          "Ref": "AWS::Region"
+         },
+         "ami"
+        ]
        },
        "InstanceType": "t2.micro",
        "SecurityGroupIds": [
@@ -881,9 +303,7 @@
          ]
         }
        ],
-       "SubnetId": {
-        "Ref": "cloudfixvpccdkPrivateSubnet1Subnet9E2CD300"
-       },
+       "SubnetId": "subnet-0a1186feed91f0165",
        "Tags": [
         {
          "Key": "Name",
@@ -933,22 +353,10 @@
       "Type": "AWS::EC2::VPCEndpoint",
       "Properties": {
        "ServiceName": "com.amazonaws.us-east-1.s3",
-       "VpcId": {
-        "Ref": "cloudfixvpccdkC77C283D"
-       },
+       "VpcId": "vpc-02badd8abb988e06e",
        "RouteTableIds": [
-        {
-         "Ref": "cloudfixvpccdkPrivateSubnet1RouteTableD297AA59"
-        },
-        {
-         "Ref": "cloudfixvpccdkPrivateSubnet2RouteTable788C5BE8"
-        },
-        {
-         "Ref": "cloudfixvpccdkPublicSubnet1RouteTable9F5E499A"
-        },
-        {
-         "Ref": "cloudfixvpccdkPublicSubnet2RouteTableF3CDB023"
-        }
+        "rtb-055316860c9497d01",
+        "rtb-08f90b2a360aeb299"
        ],
        "VpcEndpointType": "Gateway"
       },
@@ -1065,9 +473,7 @@
          "Value": "cloudfix-linter-cdk"
         }
        ],
-       "VpcId": {
-        "Ref": "cloudfixvpccdkC77C283D"
-       }
+       "VpcId": "vpc-02badd8abb988e06e"
       },
       "Metadata": {
        "aws:cdk:path": "CdkStack/cloudfix-MyFileSystem-cdk/EfsSecurityGroup/Resource"
@@ -1087,47 +493,19 @@
          ]
         }
        ],
-       "SubnetId": {
-        "Ref": "cloudfixvpccdkPrivateSubnet1Subnet9E2CD300"
-       }
+       "SubnetId": "subnet-0a1186feed91f0165"
       },
       "Metadata": {
        "aws:cdk:path": "CdkStack/cloudfix-MyFileSystem-cdk/EfsMountTarget1"
       }
      },
-     "cloudfixMyFileSystemcdkEfsMountTarget2B6F5F45E": {
-      "Type": "AWS::EFS::MountTarget",
-      "Properties": {
-       "FileSystemId": {
-        "Ref": "cloudfixMyFileSystemcdk91F94860"
-       },
-       "SecurityGroups": [
-        {
-         "Fn::GetAtt": [
-          "cloudfixMyFileSystemcdkEfsSecurityGroupB60628A9",
-          "GroupId"
-         ]
-        }
-       ],
-       "SubnetId": {
-        "Ref": "cloudfixvpccdkPrivateSubnet2Subnet7788FA1E"
-       }
-      },
-      "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-MyFileSystem-cdk/EfsMountTarget2"
-      }
-     },
-     "cloudfixDatabasecdkSubnets4990BDF4": {
+     "MyClusterSubnets1512B218": {
       "Type": "AWS::Neptune::DBSubnetGroup",
       "Properties": {
-       "DBSubnetGroupDescription": "Subnets for cloudfix-Database-cdk database",
+       "DBSubnetGroupDescription": "Subnets for MyCluster database",
        "SubnetIds": [
-        {
-         "Ref": "cloudfixvpccdkPrivateSubnet1Subnet9E2CD300"
-        },
-        {
-         "Ref": "cloudfixvpccdkPrivateSubnet2Subnet7788FA1E"
-        }
+        "subnet-0c53c3bc75d9b66b2",
+        "subnet-0ad82a9a46e5aaf68"
        ],
        "Tags": [
         {
@@ -1141,10 +519,10 @@
        ]
       },
       "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-Database-cdk/Subnets/Resource"
+       "aws:cdk:path": "CdkStack/MyCluster/Subnets/Resource"
       }
      },
-     "cloudfixDatabasecdkSecurityGroup1736476C": {
+     "MyClusterSecurityGroup6E80BA47": {
       "Type": "AWS::EC2::SecurityGroup",
       "Properties": {
        "GroupDescription": "Neptune security group",
@@ -1165,20 +543,22 @@
          "Value": "cloudfix-linter-cdk"
         }
        ],
-       "VpcId": {
-        "Ref": "cloudfixvpccdkC77C283D"
-       }
+       "VpcId": "vpc-02badd8abb988e06e"
       },
       "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-Database-cdk/SecurityGroup/Resource"
+       "aws:cdk:path": "CdkStack/MyCluster/SecurityGroup/Resource"
       }
      },
-     "cloudfixDatabasecdk0168030A": {
+     "MyCluster4C1BA579": {
       "Type": "AWS::Neptune::DBCluster",
       "Properties": {
+       "BackupRetentionPeriod": 7,
        "DBSubnetGroupName": {
-        "Ref": "cloudfixDatabasecdkSubnets4990BDF4"
+        "Ref": "MyClusterSubnets1512B218"
        },
+       "IamAuthEnabled": true,
+       "Port": 8182,
+       "PreferredBackupWindow": "03:00-04:00",
        "StorageEncrypted": true,
        "Tags": [
         {
@@ -1193,25 +573,25 @@
        "VpcSecurityGroupIds": [
         {
          "Fn::GetAtt": [
-          "cloudfixDatabasecdkSecurityGroup1736476C",
+          "MyClusterSecurityGroup6E80BA47",
           "GroupId"
          ]
         }
        ]
       },
-      "UpdateReplacePolicy": "Retain",
-      "DeletionPolicy": "Retain",
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete",
       "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-Database-cdk/Resource"
+       "aws:cdk:path": "CdkStack/MyCluster/Resource"
       }
      },
-     "cloudfixDatabasecdkInstance1E57332E7": {
+     "MyClusterInstance1AAC69E35": {
       "Type": "AWS::Neptune::DBInstance",
       "Properties": {
        "DBInstanceClass": "db.r5.large",
        "AutoMinorVersionUpgrade": false,
        "DBClusterIdentifier": {
-        "Ref": "cloudfixDatabasecdk0168030A"
+        "Ref": "MyCluster4C1BA579"
        },
        "Tags": [
         {
@@ -1224,20 +604,16 @@
         }
        ]
       },
-      "DependsOn": [
-       "cloudfixvpccdkPrivateSubnet1DefaultRoute785E3B09",
-       "cloudfixvpccdkPrivateSubnet2DefaultRouteC8B147E2"
-      ],
-      "UpdateReplacePolicy": "Retain",
-      "DeletionPolicy": "Retain",
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete",
       "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-Database-cdk/Instance1"
+       "aws:cdk:path": "CdkStack/MyCluster/Instance1"
       }
      },
      "CDKMetadata": {
       "Type": "AWS::CDK::Metadata",
       "Properties": {
-       "Analytics": "v2:deflate64:H4sIAAAAAAAA/11Sy27CMBD8lt6NoVBV6q0QKOLQKkoQ12rjLMWQ2JEfoMjKv9fOC9rTzs5OxrOrzKlbvND5E9z0hOWXScEz6lID7EI89e3yWkApc0/uISuQREfRgoYgm1N3kIUtW7ZHh4q1XRyR2GYFZ6nNBJrA3VEircHRr+Pv3FJryTgYLsUoDmCzi0P5ArMFgzeoSaz41cO78U4YVB4Pgi5J3y2NX+tUojBkJ7QBwZCkyKzipt4qaas2zH9ilPYufsGNyCvJhenth7YhHErqEtmtNdTBIFbyyMPh9IK6lWWXLnKH/DmPmroPL0hrbbAMo7/dp7TC7EH9BLXAyliB1PnBetUdYIy8XkWF9Z+prhkCNA1JUEurWJsrBgUl9qrHQSRFzsP1G/L6RmcTKKoT0NnTe/+PTEPtA/RDtwYDGWgcHn5I5J8VMkd61tPrs//VZt7qrDmfKL8PL5EmXf0F9q6tIooCAAA="
+       "Analytics": "v2:deflate64:H4sIAAAAAAAA/2WRy27CMBBFv4W9YyhUlbqrCC3qggoRxLaaOAM1JGPLj6LIyr/XeSEqVnce11dn5DkPi2c+n8DVJqK4JKXMecgciAuLo+9Q1ASVKuJwD3mJLD1SVzQMxZyHgyp91U2H6pOsAxLIMhTeSFevjfK6NTwMbtZYf4Fbg8Mr1GzQgxbvVGglyXXx23RsGyah4mGnepxRx7itUUfZAtoFD0svLtgF9FXEPloePqIhq63Dql397zbKk9uDObVuQu08IQ9xsVpmPid0twNWy7T08ZnpmxGgadgOrfKmP20LBiocXBvQWtKp477zpIoK6aSihr288lkCpf4BPpu8Dd8ybXVgGZZhBQ5ysDgy3MFFAlIF8rOd/j7F353FqLOVMjHxNFkh3/X6B10EwJ/9AQAA"
       },
       "Metadata": {
        "aws:cdk:path": "CdkStack/CDKMetadata/Default"
@@ -1250,14 +626,17 @@
       "Type": "AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>",
       "Default": "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
      },
-     "SsmParameterValueawsserviceamiamazonlinuxlatestamznamihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter": {
-      "Type": "AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>",
-      "Default": "/aws/service/ami-amazon-linux-latest/amzn-ami-hvm-x86_64-gp2"
-     },
      "BootstrapVersion": {
       "Type": "AWS::SSM::Parameter::Value<String>",
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+     }
+    },
+    "Mappings": {
+     "cloudfixinstanceappserverckdAmiMap762ED6E5": {
+      "us-east-1": {
+       "ami": "ami-09d56f8956ab235b3"
+      }
      }
     },
     "Conditions": {
