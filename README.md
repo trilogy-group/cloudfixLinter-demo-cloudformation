@@ -7,8 +7,8 @@
 1. This repo has 2 Cf templates that  will create 23 resources and 5 resources repectively:-
 
   #### Cf-Template : all-resources-template
-
-| Resource Type        | Count |
+| Resource Type   |      Count      |
+|:----------:|:-------------:|
 | AWS::DynamoDB::Table | 1 |
 | AWS::EC2::Volume     | 1 |
 | AWS::EC2::SecurityGroup | 4 |
