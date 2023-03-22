@@ -1,6 +1,6 @@
 {
     "Resources": {
-     "cloudfixlintercdk34438F11": {
+     "cloudfixlintercf1D30B82C": {
       "Type": "AWS::DynamoDB::Table",
       "Properties": {
        "KeySchema": [
@@ -30,10 +30,10 @@
       "UpdateReplacePolicy": "Retain",
       "DeletionPolicy": "Retain",
       "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfixlinter-cdk/Resource"
+       "aws:cdk:path": "CdkStack/cloudfixlinter-cf/Resource"
       }
      },
-     "DataVolume175940C2": {
+     "cloudfixcfDataVolumeB7589DA9": {
       "Type": "AWS::EC2::Volume",
       "Properties": {
        "AvailabilityZone": "us-east-1a",
@@ -54,13 +54,13 @@
       "UpdateReplacePolicy": "Retain",
       "DeletionPolicy": "Retain",
       "Metadata": {
-       "aws:cdk:path": "CdkStack/DataVolume/Resource"
+       "aws:cdk:path": "CdkStack/cloudfix-cf-DataVolume/Resource"
       }
      },
-     "AppServerInstanceSecurityGroup9DAF0DF6": {
+     "cloudfixcfAppServerInstanceSecurityGroup90F84EBB": {
       "Type": "AWS::EC2::SecurityGroup",
       "Properties": {
-       "GroupDescription": "CdkStack/AppServer/InstanceSecurityGroup",
+       "GroupDescription": "CdkStack/cloudfix-cf-AppServer/InstanceSecurityGroup",
        "SecurityGroupEgress": [
         {
          "CidrIp": "0.0.0.0/0",
@@ -71,7 +71,7 @@
        "Tags": [
         {
          "Key": "Name",
-         "Value": "CdkStack/AppServer"
+         "Value": "CdkStack/cloudfix-cf-AppServer"
         },
         {
          "Key": "Owner",
@@ -85,10 +85,10 @@
        "VpcId": "vpc-02badd8abb988e06e"
       },
       "Metadata": {
-       "aws:cdk:path": "CdkStack/AppServer/InstanceSecurityGroup/Resource"
+       "aws:cdk:path": "CdkStack/cloudfix-cf-AppServer/InstanceSecurityGroup/Resource"
       }
      },
-     "AppServerInstanceRole7669D75A": {
+     "cloudfixcfAppServerInstanceRoleF9F24B94": {
       "Type": "AWS::IAM::Role",
       "Properties": {
        "AssumeRolePolicyDocument": {
@@ -116,7 +116,7 @@
        "Tags": [
         {
          "Key": "Name",
-         "Value": "CdkStack/AppServer"
+         "Value": "CdkStack/cloudfix-cf-AppServer"
         },
         {
          "Key": "Owner",
@@ -129,28 +129,28 @@
        ]
       },
       "Metadata": {
-       "aws:cdk:path": "CdkStack/AppServer/InstanceRole/Resource"
+       "aws:cdk:path": "CdkStack/cloudfix-cf-AppServer/InstanceRole/Resource"
       }
      },
-     "AppServerInstanceProfileFDED9889": {
+     "cloudfixcfAppServerInstanceProfileBF4AA31E": {
       "Type": "AWS::IAM::InstanceProfile",
       "Properties": {
        "Roles": [
         {
-         "Ref": "AppServerInstanceRole7669D75A"
+         "Ref": "cloudfixcfAppServerInstanceRoleF9F24B94"
         }
        ]
       },
       "Metadata": {
-       "aws:cdk:path": "CdkStack/AppServer/InstanceProfile"
+       "aws:cdk:path": "CdkStack/cloudfix-cf-AppServer/InstanceProfile"
       }
      },
-     "AppServer33D3A8FF": {
+     "cloudfixcfAppServerCA2B5C92": {
       "Type": "AWS::EC2::Instance",
       "Properties": {
        "AvailabilityZone": "us-east-1a",
        "IamInstanceProfile": {
-        "Ref": "AppServerInstanceProfileFDED9889"
+        "Ref": "cloudfixcfAppServerInstanceProfileBF4AA31E"
        },
        "ImageId": {
         "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter"
@@ -159,7 +159,7 @@
        "SecurityGroupIds": [
         {
          "Fn::GetAtt": [
-          "AppServerInstanceSecurityGroup9DAF0DF6",
+          "cloudfixcfAppServerInstanceSecurityGroup90F84EBB",
           "GroupId"
          ]
         }
@@ -168,7 +168,7 @@
        "Tags": [
         {
          "Key": "Name",
-         "Value": "CdkStack/AppServer"
+         "Value": "CdkStack/cloudfix-cf-AppServer"
         },
         {
          "Key": "Owner",
@@ -184,16 +184,16 @@
        }
       },
       "DependsOn": [
-       "AppServerInstanceRole7669D75A"
+       "cloudfixcfAppServerInstanceRoleF9F24B94"
       ],
       "Metadata": {
-       "aws:cdk:path": "CdkStack/AppServer/Resource"
+       "aws:cdk:path": "CdkStack/cloudfix-cf-AppServer/Resource"
       }
      },
-     "cloudfixinstanceappserverckdInstanceSecurityGroupFCDF27AC": {
+     "cloudfixcfinstanceappserverInstanceSecurityGroup0A7C720F": {
       "Type": "AWS::EC2::SecurityGroup",
       "Properties": {
-       "GroupDescription": "CdkStack/cloudfix-instance-appserver-ckd/InstanceSecurityGroup",
+       "GroupDescription": "CdkStack/cloudfix-cf-instance-appserver/InstanceSecurityGroup",
        "SecurityGroupEgress": [
         {
          "CidrIp": "0.0.0.0/0",
@@ -204,7 +204,7 @@
        "Tags": [
         {
          "Key": "Name",
-         "Value": "CdkStack/cloudfix-instance-appserver-ckd"
+         "Value": "CdkStack/cloudfix-cf-instance-appserver"
         },
         {
          "Key": "Owner",
@@ -218,10 +218,10 @@
        "VpcId": "vpc-02badd8abb988e06e"
       },
       "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-instance-appserver-ckd/InstanceSecurityGroup/Resource"
+       "aws:cdk:path": "CdkStack/cloudfix-cf-instance-appserver/InstanceSecurityGroup/Resource"
       }
      },
-     "cloudfixinstanceappserverckdInstanceRole84C62BD5": {
+     "cloudfixcfinstanceappserverInstanceRole8E6E2D49": {
       "Type": "AWS::IAM::Role",
       "Properties": {
        "AssumeRolePolicyDocument": {
@@ -249,7 +249,7 @@
        "Tags": [
         {
          "Key": "Name",
-         "Value": "CdkStack/cloudfix-instance-appserver-ckd"
+         "Value": "CdkStack/cloudfix-cf-instance-appserver"
         },
         {
          "Key": "Owner",
@@ -262,32 +262,32 @@
        ]
       },
       "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-instance-appserver-ckd/InstanceRole/Resource"
+       "aws:cdk:path": "CdkStack/cloudfix-cf-instance-appserver/InstanceRole/Resource"
       }
      },
-     "cloudfixinstanceappserverckdInstanceProfile2A929D83": {
+     "cloudfixcfinstanceappserverInstanceProfile2F003956": {
       "Type": "AWS::IAM::InstanceProfile",
       "Properties": {
        "Roles": [
         {
-         "Ref": "cloudfixinstanceappserverckdInstanceRole84C62BD5"
+         "Ref": "cloudfixcfinstanceappserverInstanceRole8E6E2D49"
         }
        ]
       },
       "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-instance-appserver-ckd/InstanceProfile"
+       "aws:cdk:path": "CdkStack/cloudfix-cf-instance-appserver/InstanceProfile"
       }
      },
-     "cloudfixinstanceappserverckdA3B71B3E": {
+     "cloudfixcfinstanceappserver6748D195": {
       "Type": "AWS::EC2::Instance",
       "Properties": {
        "AvailabilityZone": "us-east-1a",
        "IamInstanceProfile": {
-        "Ref": "cloudfixinstanceappserverckdInstanceProfile2A929D83"
+        "Ref": "cloudfixcfinstanceappserverInstanceProfile2F003956"
        },
        "ImageId": {
         "Fn::FindInMap": [
-         "cloudfixinstanceappserverckdAmiMap762ED6E5",
+         "cloudfixcfinstanceappserverAmiMap4C1EB744",
          {
           "Ref": "AWS::Region"
          },
@@ -298,7 +298,7 @@
        "SecurityGroupIds": [
         {
          "Fn::GetAtt": [
-          "cloudfixinstanceappserverckdInstanceSecurityGroupFCDF27AC",
+          "cloudfixcfinstanceappserverInstanceSecurityGroup0A7C720F",
           "GroupId"
          ]
         }
@@ -307,7 +307,7 @@
        "Tags": [
         {
          "Key": "Name",
-         "Value": "CdkStack/cloudfix-instance-appserver-ckd"
+         "Value": "CdkStack/cloudfix-cf-instance-appserver"
         },
         {
          "Key": "Owner",
@@ -323,13 +323,13 @@
        }
       },
       "DependsOn": [
-       "cloudfixinstanceappserverckdInstanceRole84C62BD5"
+       "cloudfixcfinstanceappserverInstanceRole8E6E2D49"
       ],
       "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-instance-appserver-ckd/Resource"
+       "aws:cdk:path": "CdkStack/cloudfix-cf-instance-appserver/Resource"
       }
      },
-     "cloudfixNatgatewaycdk": {
+     "cloudfixcfNatgateway": {
       "Type": "AWS::EC2::NatGateway",
       "Properties": {
        "SubnetId": "subnet-0ad82a9a46e5aaf68",
@@ -346,10 +346,10 @@
        ]
       },
       "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-Natgateway-cdk"
+       "aws:cdk:path": "CdkStack/cloudfix-cf-Natgateway"
       }
      },
-     "cloudfixMyVpcEndpointcdk17F93547": {
+     "cloudfixcfMyVpcEndpoint2B3B0E98": {
       "Type": "AWS::EC2::VPCEndpoint",
       "Properties": {
        "ServiceName": "com.amazonaws.us-east-1.s3",
@@ -361,10 +361,10 @@
        "VpcEndpointType": "Gateway"
       },
       "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-MyVpcEndpoint-cdk/Resource"
+       "aws:cdk:path": "CdkStack/cloudfix-cf-MyVpcEndpoint/Resource"
       }
      },
-     "cloudfixs31cdk1C96FDB49": {
+     "cloudfixcfs318F2DAC6D": {
       "Type": "AWS::S3::Bucket",
       "Properties": {
        "AccessControl": "Private",
@@ -386,10 +386,10 @@
       "UpdateReplacePolicy": "Retain",
       "DeletionPolicy": "Retain",
       "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-s3-1-cdk-1/Resource"
+       "aws:cdk:path": "CdkStack/cloudfix-cf-s3-1/Resource"
       }
      },
-     "cloudfixs32cdk232B710AA": {
+     "cloudfixcfs32BA22A389": {
       "Type": "AWS::S3::Bucket",
       "Properties": {
        "AccessControl": "PublicReadWrite",
@@ -420,17 +420,17 @@
       "UpdateReplacePolicy": "Retain",
       "DeletionPolicy": "Retain",
       "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-s3-2-cdk-2/Resource"
+       "aws:cdk:path": "CdkStack/cloudfix-cf-s3-2/Resource"
       }
      },
-     "cloudfixMyFileSystemcdk91F94860": {
+     "cloudfixcfMyFileSystem506E3CC5": {
       "Type": "AWS::EFS::FileSystem",
       "Properties": {
        "Encrypted": true,
        "FileSystemTags": [
         {
          "Key": "Name",
-         "Value": "CdkStack/cloudfix-MyFileSystem-cdk"
+         "Value": "CdkStack/cloudfix-cf-MyFileSystem"
         },
         {
          "Key": "Owner",
@@ -445,13 +445,13 @@
       "UpdateReplacePolicy": "Retain",
       "DeletionPolicy": "Retain",
       "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-MyFileSystem-cdk/Resource"
+       "aws:cdk:path": "CdkStack/cloudfix-cf-MyFileSystem/Resource"
       }
      },
-     "cloudfixMyFileSystemcdkEfsSecurityGroupB60628A9": {
+     "cloudfixcfMyFileSystemEfsSecurityGroup20E8E2D7": {
       "Type": "AWS::EC2::SecurityGroup",
       "Properties": {
-       "GroupDescription": "CdkStack/cloudfix-MyFileSystem-cdk/EfsSecurityGroup",
+       "GroupDescription": "CdkStack/cloudfix-cf-MyFileSystem/EfsSecurityGroup",
        "SecurityGroupEgress": [
         {
          "CidrIp": "0.0.0.0/0",
@@ -462,7 +462,7 @@
        "Tags": [
         {
          "Key": "Name",
-         "Value": "CdkStack/cloudfix-MyFileSystem-cdk"
+         "Value": "CdkStack/cloudfix-cf-MyFileSystem"
         },
         {
          "Key": "Owner",
@@ -476,19 +476,19 @@
        "VpcId": "vpc-02badd8abb988e06e"
       },
       "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-MyFileSystem-cdk/EfsSecurityGroup/Resource"
+       "aws:cdk:path": "CdkStack/cloudfix-cf-MyFileSystem/EfsSecurityGroup/Resource"
       }
      },
-     "cloudfixMyFileSystemcdkEfsMountTarget157BD5DED": {
+     "cloudfixcfMyFileSystemEfsMountTarget15A64BFC9": {
       "Type": "AWS::EFS::MountTarget",
       "Properties": {
        "FileSystemId": {
-        "Ref": "cloudfixMyFileSystemcdk91F94860"
+        "Ref": "cloudfixcfMyFileSystem506E3CC5"
        },
        "SecurityGroups": [
         {
          "Fn::GetAtt": [
-          "cloudfixMyFileSystemcdkEfsSecurityGroupB60628A9",
+          "cloudfixcfMyFileSystemEfsSecurityGroup20E8E2D7",
           "GroupId"
          ]
         }
@@ -496,13 +496,13 @@
        "SubnetId": "subnet-0a1186feed91f0165"
       },
       "Metadata": {
-       "aws:cdk:path": "CdkStack/cloudfix-MyFileSystem-cdk/EfsMountTarget1"
+       "aws:cdk:path": "CdkStack/cloudfix-cf-MyFileSystem/EfsMountTarget1"
       }
      },
-     "MyClusterSubnets1512B218": {
+     "cloufixcfMyClusterSubnetsD705B440": {
       "Type": "AWS::Neptune::DBSubnetGroup",
       "Properties": {
-       "DBSubnetGroupDescription": "Subnets for MyCluster database",
+       "DBSubnetGroupDescription": "Subnets for cloufix-cf-MyCluster database",
        "SubnetIds": [
         "subnet-0c53c3bc75d9b66b2",
         "subnet-0ad82a9a46e5aaf68"
@@ -519,10 +519,10 @@
        ]
       },
       "Metadata": {
-       "aws:cdk:path": "CdkStack/MyCluster/Subnets/Resource"
+       "aws:cdk:path": "CdkStack/cloufix-cf-MyCluster/Subnets/Resource"
       }
      },
-     "MyClusterSecurityGroup6E80BA47": {
+     "cloufixcfMyClusterSecurityGroupC150F125": {
       "Type": "AWS::EC2::SecurityGroup",
       "Properties": {
        "GroupDescription": "Neptune security group",
@@ -546,15 +546,15 @@
        "VpcId": "vpc-02badd8abb988e06e"
       },
       "Metadata": {
-       "aws:cdk:path": "CdkStack/MyCluster/SecurityGroup/Resource"
+       "aws:cdk:path": "CdkStack/cloufix-cf-MyCluster/SecurityGroup/Resource"
       }
      },
-     "MyCluster4C1BA579": {
+     "cloufixcfMyClusterB8FFE370": {
       "Type": "AWS::Neptune::DBCluster",
       "Properties": {
        "BackupRetentionPeriod": 7,
        "DBSubnetGroupName": {
-        "Ref": "MyClusterSubnets1512B218"
+        "Ref": "cloufixcfMyClusterSubnetsD705B440"
        },
        "IamAuthEnabled": true,
        "Port": 8182,
@@ -573,7 +573,7 @@
        "VpcSecurityGroupIds": [
         {
          "Fn::GetAtt": [
-          "MyClusterSecurityGroup6E80BA47",
+          "cloufixcfMyClusterSecurityGroupC150F125",
           "GroupId"
          ]
         }
@@ -582,16 +582,16 @@
       "UpdateReplacePolicy": "Delete",
       "DeletionPolicy": "Delete",
       "Metadata": {
-       "aws:cdk:path": "CdkStack/MyCluster/Resource"
+       "aws:cdk:path": "CdkStack/cloufix-cf-MyCluster/Resource"
       }
      },
-     "MyClusterInstance1AAC69E35": {
+     "cloufixcfMyClusterInstance1865B5DA0": {
       "Type": "AWS::Neptune::DBInstance",
       "Properties": {
        "DBInstanceClass": "db.r5.large",
        "AutoMinorVersionUpgrade": false,
        "DBClusterIdentifier": {
-        "Ref": "MyCluster4C1BA579"
+        "Ref": "cloufixcfMyClusterB8FFE370"
        },
        "Tags": [
         {
@@ -607,7 +607,7 @@
       "UpdateReplacePolicy": "Delete",
       "DeletionPolicy": "Delete",
       "Metadata": {
-       "aws:cdk:path": "CdkStack/MyCluster/Instance1"
+       "aws:cdk:path": "CdkStack/cloufix-cf-MyCluster/Instance1"
       }
      },
      "CDKMetadata": {
@@ -633,7 +633,7 @@
      }
     },
     "Mappings": {
-     "cloudfixinstanceappserverckdAmiMap762ED6E5": {
+     "cloudfixcfinstanceappserverAmiMap4C1EB744": {
       "us-east-1": {
        "ami": "ami-09d56f8956ab235b3"
       }
