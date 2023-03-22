@@ -54,8 +54,10 @@
    - Before deploying your stack, you need to edit the `SubnetId` [here](./Templates1/cf-template.json#L22) for `cloudfix-linter-demo-cloudformation` stack and [all subnets in this file](https://github.com/trilogy-group/cloudfixLinter-demo-cloudformation/blob/newResources/README.md) for `CfDemoStack` stack to the id of a subnet that exists in your account and to which you would like to deploy the resources.
 
  ### 4. Stack Deployment    
+**Note : - For demo purpose we have already deployed a stack with name `CfDemoStack` for using `all-resources-template.json` and `cloudfix-linter-demo-cloudformation` for using `cf-template.json` with given template in Q3 of TrilogyAccount. You can use it for demo purpose, if you are a Trilogy account holder.**       
    - Deploy a stack in your AWS account using the template (No need to do this again if deployed once and that stack isn't deleted). There are two ways to do this:
     - Use AWS [console](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks)
+
     - Login to aws through CLI, then run this command
       ```
       aws cloudformation deploy --template-file Templates1/all-resources-template.json --stack-name <stackName> --capabilities CAPABILITY_IAM
@@ -96,7 +98,7 @@
 
 
 
-   - For demo purpose we have already deployed a stack with name `CfDemoStack` for using `all-resources-template.json` and `cloudfix-linter-demo-cloudformation` for using `cf-template.json` with given template in Q3. You can use it for demo purpose.   
+   
     - This will generate a reccos.json file which will be used to facilitate mock recommendations         
     - Note: For this step we use AWS SDK to fetch stacks details from your AWS account
  ### 6. Open command pallete    
