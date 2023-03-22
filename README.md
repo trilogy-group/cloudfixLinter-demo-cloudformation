@@ -94,12 +94,13 @@
    export CLOUDFIX_FILE=false
    export CLOUDFIX_USERNAME="<MY_USERNAME>"
    export CLOUDFIX_PASSWORD="<PASSWORD>"
-   ```
-
-   
+   ```        
 
 
    
+
+
+
     - This will generate a reccos.json file which will be used to facilitate mock recommendations         
     - Note: For this step we use AWS SDK to fetch stacks details from your AWS account
  ### 6. Open command pallete    
