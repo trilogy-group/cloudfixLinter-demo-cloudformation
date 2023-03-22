@@ -86,3 +86,4 @@ Note: If you use the given template to deploy multiple stacks(in the same env ->
 ### FAQ
 
 1. Not able to deploy the stack in aws account
+ - Please check permissions authorized to your aws account. Since provided stack creates IAM Roles also, ensure you have sufficient permissions.
