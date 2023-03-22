@@ -93,7 +93,7 @@
    export CLOUDFIX_USERNAME="<MY_USERNAME>"
    export CLOUDFIX_PASSWORD="<PASSWORD>"
    ```
-   Cloudfix recommendations for your resources:
+   
     - For demo purpose we have already deployed a stack with name `Cloudfix--linter-Cf-demo-stack` for using `all-resources-template.json` and `cloudfix-linter-demo-cloudformation` for using `cf-template.json` with given template in Q3. You can use it for demo purpose.   
     - This will generate a reccos.json file which will be used to facilitate mock recommendations 
     -          
