@@ -51,7 +51,7 @@
       Default output format [None]:
       ```
 ### 3.  Setup SubnetId's for deploying resources    
-   - Before deploying your stack, you need to edit the `SubnetId` [here](./Templates1/cf-template.json#L22) to the id of a subnet that exists in your account and to which you would like to deploy the resources.
+   - Before deploying your stack, you need to edit the `SubnetId` [here](./Templates1/cf-template.json#L22) for `cloudfix-linter-demo-cloudformation` stack and [all subnets in this file](https://github.com/trilogy-group/cloudfixLinter-demo-cloudformation/blob/newResources/README.md) for `CfDemoStack` stack to the id of a subnet that exists in your account and to which you would like to deploy the resources.
 
  ### 4. Stack Deployment    
    - Deploy a stack in your AWS account using the template (No need to do this again if deployed once and that stack isn't deleted). There are two ways to do this:
