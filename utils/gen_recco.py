@@ -881,7 +881,7 @@ def generate_recos(item):
         return [generate_volume_reco(region, account_id, physical_id, logical_id),
         # generate_io_to_gp3_reco(region, account_id, physical_id, logical_id),
         generate_unused_ebs_volume_reco(region, account_id, physical_id, logical_id),
-        generate_archive_old_ebs_volume_snapshot_recco(region, account_id, physical_id, logical_id),
+        # generate_archive_old_ebs_volume_snapshot_recco(region, account_id, physical_id, logical_id),
         ]
 
     if item['ResourceType'] == 'AWS::EC2::Instance':
