@@ -65,9 +65,38 @@
  ***Note : Stack creates IAM roles. Please ensure you have sufficient permissions to create IAM roles**
  
  ### 5.  Getting Mock recommendations    
-   - For viewing **mock recommendations**. Since Cloudfix won't give recommendations for your resources till it has observed behaviour for 14 days, so for a quick preview of the tool mock recommendations can be used to fake Cloudfix recommendations for your resources:
-    - Run command `python utils/gen_recco.py <stackName>`. For demo purpose we have already deployed a stack with name `Cloudfix--linter-Cf-demo-stack` for using `all-resources-template.json` and `cloudfix-linter-demo-cloudformation` for using `cf-template.json` with given template in Q3. You can use it for demo purpose.   
-    - This will generate a reccos.json file which will be used to facilitate mock recommendations          
+   - For viewing **mock recommendations**. Since Cloudfix won't give recommendations for your resources till it has observed behaviour for 14 days, so for a quick preview of the tool mock recommendations can be used to fake 
+   #### To use mock recommendations.
+   In order to generate mock recommnedations and tell the linter that it needs to read reccomendations from a file rather than from CloudFix itself, on the terminal run
+   - Windows
+   ```
+   $env:CLOUDFIX_FILE=$true
+   python utils/gen_recco.py <stackName>
+   ```
+   - Linux and Devspaces
+   ```
+   export CLOUDFIX_FILE=true
+   python utils/gen_recco.py <stackName>
+   ```
+
+   #### To use cloudFix recommendations from via CLI
+
+   - Windows
+   ```
+   $env:CLOUDFIX_FILE=$false
+   $env:CLOUDFIX_USERNAME="<MY_USERNAME>"
+   $env:CLOUDFIX_PASSWORD="<PASSWORD>"
+   ```
+   - Linux and Devspaces
+   ```
+   export CLOUDFIX_FILE=false
+   export CLOUDFIX_USERNAME="<MY_USERNAME>"
+   export CLOUDFIX_PASSWORD="<PASSWORD>"
+   ```
+   Cloudfix recommendations for your resources:
+    - For demo purpose we have already deployed a stack with name `Cloudfix--linter-Cf-demo-stack` for using `all-resources-template.json` and `cloudfix-linter-demo-cloudformation` for using `cf-template.json` with given template in Q3. You can use it for demo purpose.   
+    - This will generate a reccos.json file which will be used to facilitate mock recommendations 
+    -          
     - Note: For this step we use AWS SDK to fetch stacks details from your AWS account
  ### 6. Open command pallete    
    - Press `Ctrl+Shift+p` to open VS Code command palette
