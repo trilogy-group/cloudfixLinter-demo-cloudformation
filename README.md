@@ -43,7 +43,7 @@
     - Note: Setting `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_SESSION_TOKEN` as enviroment variables from terminal won't work because they are just available in the terminal instance in which have set them and not available globally.
 
  ### 2.  Region set up   
- The region for default profile should also be set to the region where the stack exists. Use the command `aws configure`. Following is an example of setting the region to `us-east-1`
+   - The region for default profile should also be set to the region where the stack exists. Use the command `aws configure`. Following is an example of setting the region to `us-east-1`
       ```
       AWS Access Key ID [****************H44M]: 
       AWS Secret Access Key [****************9jFj]: 
@@ -51,10 +51,10 @@
       Default output format [None]:
       ```
 ### 3.  Setup SubnetId's for deploying resources    
- Before deploying your stack, you need to edit the `SubnetId` [here](./Templates1/cf-template.json#L22) to the id of a subnet that exists in your account and to which you would like to deploy the resources.
+   - Before deploying your stack, you need to edit the `SubnetId` [here](./Templates1/cf-template.json#L22) to the id of a subnet that exists in your account and to which you would like to deploy the resources.
 
  ### 4. Stack Deployment    
- Deploy a stack in your AWS account using the template (No need to do this again if deployed once and that stack isn't deleted). There are two ways to do this:
+   - Deploy a stack in your AWS account using the template (No need to do this again if deployed once and that stack isn't deleted). There are two ways to do this:
     - Use AWS [console](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks)
     - Login to aws through CLI, then run this command
       ```
@@ -65,20 +65,20 @@
  ***Note : Stack creates IAM roles. Please ensure you have sufficient permissions to create IAM roles**
  
  ### 5.  Getting Mock recommendations    
- For viewing **mock recommendations**. Since Cloudfix won't give recommendations for your resources till it has observed behaviour for 14 days, so for a quick preview of the tool mock recommendations can be used to fake Cloudfix recommendations for your resources:
+   - For viewing **mock recommendations**. Since Cloudfix won't give recommendations for your resources till it has observed behaviour for 14 days, so for a quick preview of the tool mock recommendations can be used to fake Cloudfix recommendations for your resources:
     - Run command `python utils/gen_recco.py <stackName>`. For demo purpose we have already deployed a stack with name `Cloudfix--linter-Cf-demo-stack` for using `all-resources-template.json` and `cloudfix-linter-demo-cloudformation` for using `cf-template.json` with given template in Q3. You can use it for demo purpose.
     - This will generate a reccos.json file which will be used to facilitate mock recommendations
     - Note: For this step we use AWS SDK to fetch stacks details from your AWS account
  ### 6. Open command pallete    
- Press `Ctrl+Shift+p` to open VS Code command palette
+   - Press `Ctrl+Shift+p` to open VS Code command palette
 
  ### 7. Cloudfix-linter extension initialization    
- Run `Cloudfix-linter: init` command
+   - Run `Cloudfix-linter: init` command
     1. Choose `mock-recommendations` for mock recommendation
     2. Choose `CloudFix-service-recommendations` for Cloudfix API recommendations
        - Provide Cloudfix account credentials
  ### 8. Saving the cf templates    
- Save/Edit cloudformation template file to view recommendations
+   - Save/Edit cloudformation template file to view recommendations
 
 Note: If you use the given template to deploy multiple stacks(in the same env -> Account+Region), recommendations from all the stacks will be linted along with the stack name for the recommendation
 
