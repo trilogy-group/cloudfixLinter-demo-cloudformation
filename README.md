@@ -73,8 +73,8 @@
    - Press `Ctrl+Shift+p` to open VS Code command palette
 
  ### 7. Cloudfix-linter extension initialization    
-   - Run `Cloudfix-linter: init` command
-    1. Choose `mock-recommendations` for mock recommendation
+   - Run `Cloudfix-linter: init` command   
+    1. Choose `mock-recommendations` for mock recommendation    
     2. Choose `CloudFix-service-recommendations` for Cloudfix API recommendations
        - Provide Cloudfix account credentials
  ### 8. Saving the cf templates    
