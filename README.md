@@ -96,7 +96,7 @@
 
 
 
-   - For demo purpose we have already deployed a stack with name `Cloudfix--linter-Cf-demo-stack` for using `all-resources-template.json` and `cloudfix-linter-demo-cloudformation` for using `cf-template.json` with given template in Q3. You can use it for demo purpose.   
+   - For demo purpose we have already deployed a stack with name `CfDemoStack` for using `all-resources-template.json` and `cloudfix-linter-demo-cloudformation` for using `cf-template.json` with given template in Q3. You can use it for demo purpose.   
     - This will generate a reccos.json file which will be used to facilitate mock recommendations         
     - Note: For this step we use AWS SDK to fetch stacks details from your AWS account
  ### 6. Open command pallete    
