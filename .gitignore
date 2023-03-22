@@ -3,3 +3,4 @@ cloudfix-linter*
 .gitignore
 makefile
 reccos.json
+cloudfix-linter-rules.json
