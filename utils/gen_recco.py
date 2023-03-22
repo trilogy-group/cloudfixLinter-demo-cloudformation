@@ -573,38 +573,38 @@ def generate_ec2_low_risk_right_size_recco(region, account, resource_id, resourc
         "isTemplateAvailable": True
     }
 
-def generate_archive_old_ebs_volume_snapshot_recco(region, account, resource_id, resource_name):
-    return {
-        "id": str(uuid.uuid4()),
-        "customerId": 10002,
-        "accountId": "724994046559",
-        "accountNickname": "Dev-Think3-Agemni",
-        "opportunityType": "ArchiveOldEbsVolumeSnapshots",
-        "opportunityId": "",
-        "region": region,
-        "organizationalUnitName": "Non Production",
-        "opportunityDescription": "Archive old EBS volume snapshots.",
-        "primaryImpactedNodeId": resource_id,
-        "otherImpactedNodeIds": [],
-        "resourceId": resource_id,
-        "resourceName": resource_name,
-        "difficulty": 1,
-        "risk": 1,
-        "applicationEnvironment": "prod",
-        "annualSavings": 90.74,
-        "annualCost": 92,
-        "actualSavings": None,
-        "changeRequestId": "oi-55346e1a0082",
-        "changeRequestStatus": "CompletedWithSuccess",
-        "createdAt": "2022-12-04T01:05:11.000Z",
-        "updatedAt": "2022-12-05T03:19:41.000Z",
-        "status": "Completed",
-        "scheduledAt": "2022-12-05T03:19:36.000Z",
-        "parameters": {},
-        "isTemplateApproved": True,
-        "autoApproved": True,
-        "isTemplateAvailable": True
-    }
+# def generate_archive_old_ebs_volume_snapshot_recco(region, account, resource_id, resource_name):
+#     return {
+#         "id": str(uuid.uuid4()),
+#         "customerId": 10002,
+#         "accountId": "724994046559",
+#         "accountNickname": "Dev-Think3-Agemni",
+#         "opportunityType": "ArchiveOldEbsVolumeSnapshots",
+#         "opportunityId": "",
+#         "region": region,
+#         "organizationalUnitName": "Non Production",
+#         "opportunityDescription": "Archive old EBS volume snapshots.",
+#         "primaryImpactedNodeId": resource_id,
+#         "otherImpactedNodeIds": [],
+#         "resourceId": resource_id,
+#         "resourceName": resource_name,
+#         "difficulty": 1,
+#         "risk": 1,
+#         "applicationEnvironment": "prod",
+#         "annualSavings": 90.74,
+#         "annualCost": 92,
+#         "actualSavings": None,
+#         "changeRequestId": "oi-55346e1a0082",
+#         "changeRequestStatus": "CompletedWithSuccess",
+#         "createdAt": "2022-12-04T01:05:11.000Z",
+#         "updatedAt": "2022-12-05T03:19:41.000Z",
+#         "status": "Completed",
+#         "scheduledAt": "2022-12-05T03:19:36.000Z",
+#         "parameters": {},
+#         "isTemplateApproved": True,
+#         "autoApproved": True,
+#         "isTemplateAvailable": True
+#     }
 
 def generate_dynamo_db_infrequent_access_recco(region, account, resource_id, resource_name):
     return {
