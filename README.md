@@ -119,9 +119,7 @@ Note: If you use the given template to deploy multiple stacks(in the same env ->
 ## Steps to add cloudfix-linter in your $PATH env variable
  ### On MacOS 
   - Open the .bash_profile file in your home directory (for example, /Users/your-user-name/.bash_profile) in a text editor.
-  - Add export PATH="~/.cloudfix-linter/bin/:$PATH" to the last line of the file.     
-  - Save the .bash_profile file.
-  - Restart your terminal.
+  - run `export PATH=$PATH:~/.cloudfix-linter/bin/`
   - run `cloudfix-linter -v ` to check path has been set successfully
 
  ### On Linux
