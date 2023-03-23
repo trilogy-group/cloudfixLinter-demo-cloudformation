@@ -131,8 +131,8 @@ Note: If you use the given template to deploy multiple stacks(in the same env ->
   - run `cloudfix-linter -v ` to check path has been set successfully
 
  ### On Linux
-  - Open the .bashrc file in your home directory (for example, /home/your-user-name/.bashrc) in a text editor.    
-  - Add export PATH="~/.cloudfix-linter/bin/:$PATH" to the last line of the file, where your-dir is the directory you want to add.     
+  - run `nano ~/.bashrc`        
+  - Add export PATH="~/.cloudfix-linter/bin:$PATH" to the last line of the file, where your-dir is the directory you want to add.     
   - Save the .bashrc file.     
   - Restart your terminal.  
   - run `cloudfix-linter -v ` to check path has been set successfully    
