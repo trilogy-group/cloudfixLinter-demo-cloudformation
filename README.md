@@ -119,5 +119,4 @@ Note: If you use the given template to deploy multiple stacks(in the same env ->
  - Please check permissions authorized to your aws account. Since provided stack creates IAM Roles also, ensure you have sufficient permissions.
 
 2. Running `python utils/gen_recco.py <stackName>` gives - An error occurred (ExpiredToken) when calling the DescribeStackResources operation: The security token included in the request is expired
- - Above error means, cli couldn't authenticate the aws creds provided by you.
- To solve the above problem provide appropiate AWS Creds by one of the methods mentioned above in usage guide.
+ - To fix this issue, please refer to the usage guide and make sure that you're providing the correct AWS credentials using one of the recommended methods
