@@ -68,7 +68,7 @@
 
  ***Note : Stack creates IAM roles. Please ensure you have sufficient permissions to create IAM roles**
  
- ### 5.  Getting Mock recommendations    
+ ### 5.  Fetching recommendations    
    - For viewing **mock recommendations**. Since Cloudfix won't give recommendations for your resources till it has observed behaviour for 14 days, so for a quick preview of the tool mock recommendations can be used to fake 
    #### To use mock recommendations.
    In order to generate mock recommnedations and tell the linter that it needs to read reccomendations from a file rather than from CloudFix itself, on the terminal run
