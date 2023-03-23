@@ -83,7 +83,9 @@
    python utils/gen_recco.py <stackName>
    ```
 
-   #### To use cloudFix recommendations from via CLI
+    - This will generate a reccos.json file which will be used to facilitate mock recommendations     
+    
+   #### To use cloudFix recommendations via CLI
 
    - Windows
    ```
@@ -97,8 +99,9 @@
    export CLOUDFIX_USERNAME="<MY_USERNAME>"
    export CLOUDFIX_PASSWORD="<PASSWORD>"
    ```          
-      - This will generate a reccos.json file which will be used to facilitate mock recommendations         
+          
     - Note: For this step we use AWS SDK to fetch stacks details from your AWS account
+
  ### 6. Open command pallete    
    - Press `Ctrl+Shift+p` to open VS Code command palette
 
@@ -112,6 +115,19 @@
 
 Note: If you use the given template to deploy multiple stacks(in the same env -> Account+Region), recommendations from all the stacks will be linted along with the stack name for the recommendation
 
+## Steps to add cloudfix-linter in your $PATH env variable
+ ### On MacOS 
+  - Open the .bash_profile file in your home directory (for example, /Users/your-user-name/.bash_profile) in a text editor.
+  - Add export PATH="~/.cloudfix-linter/bin/:$PATH" to the last line of the file.     
+  - Save the .bash_profile file.
+  - Restart your terminal.
+  - run `cloudfix-linter -v ` to check path has been set successfully
+
+ ### On Linux
+  - Open the .bashrc file in your home directory (for example, /home/your-user-name/.bashrc) in a text editor.    
+  - Add export PATH="~/.cloudfix-linter/bin/:$PATH" to the last line of the file, where your-dir is the directory you want to add.     
+  - Save the .bashrc file.     
+  - Restart your terminal.      
 
 ### FAQ
 
