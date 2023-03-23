@@ -118,7 +118,7 @@ Note: If you use the given template to deploy multiple stacks(in the same env ->
 
 ## Steps to add cloudfix-linter in your $PATH env variable
  ### On MacOS 
-  - For Setting the path to cloudfix-linter binary in a single terminal - 
+  - For Setting the path to cloudfix-linter binary in your current terminal only - 
     - run `export PATH=$PATH:~/.cloudfix-linter/bin/`
   - For setting path to cloudfix-linter binary across your system - 
     - run `sudo nano /etc/paths`
@@ -127,7 +127,7 @@ Note: If you use the given template to deploy multiple stacks(in the same env ->
     (Note: Replace your_username with your actual username.)
     - Save the file by pressing Control+X, then Y, then Enter.
     - Close the Terminal and reopen it for the changes to take effect.
-    
+
   - run `cloudfix-linter -v ` to check path has been set successfully
 
  ### On Linux
