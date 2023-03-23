@@ -86,7 +86,7 @@
 
   - This will generate a reccos.json file which will be used to facilitate mock recommendations     
     
-   #### To use cloudFix recommendations via CLI
+   #### To get cloudFix recommendations via CLI
 
    - Windows
    ```
