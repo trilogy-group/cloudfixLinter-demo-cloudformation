@@ -1,0 +1,753 @@
+{
+   "AWSTemplateFormatVersion": "2010-09-09",
+   "Resources": {
+      "cloudfixlintercf1D30B82C": {
+         "Type": "AWS::DynamoDB::Table",
+         "Properties": {
+            "KeySchema": [
+               {
+                  "AttributeName": "id",
+                  "KeyType": "HASH"
+               }
+            ],
+            "AttributeDefinitions": [
+               {
+                  "AttributeName": "id",
+                  "AttributeType": "S"
+               }
+            ],
+            "BillingMode": "PAY_PER_REQUEST",
+            "Tags": [
+               {
+                  "Key": "Owner",
+                  "Value": "ankush.pandey@trilogy.com"
+               },
+               {
+                  "Key": "Project",
+                  "Value": "cloudfix-linter-cdk"
+               }
+            ]
+         },
+         "UpdateReplacePolicy": "Retain",
+         "DeletionPolicy": "Retain",
+         "Metadata": {
+            "aws:cdk:path": "CfDemoStack/cloudfixlinter-cf/Resource"
+         }
+      },
+      "cloudfixcfDataVolumeB7589DA9": {
+         "Type": "AWS::EC2::Volume",
+         "Properties": {
+            "AvailabilityZone": "us-east-1a",
+            "MultiAttachEnabled": false,
+            "Size": 10,
+            "Tags": [
+               {
+                  "Key": "Owner",
+                  "Value": "ankush.pandey@trilogy.com"
+               },
+               {
+                  "Key": "Project",
+                  "Value": "cloudfix-linter-cdk"
+               }
+            ],
+            "VolumeType": "gp2"
+         },
+         "UpdateReplacePolicy": "Retain",
+         "DeletionPolicy": "Retain",
+         "Metadata": {
+            "aws:cdk:path": "CfDemoStack/cloudfix-cf-DataVolume/Resource"
+         }
+      },
+      "cloudfixcfAppServerInstanceSecurityGroup90F84EBB": {
+         "Type": "AWS::EC2::SecurityGroup",
+         "Properties": {
+            "GroupDescription": "CfDemoStack/cloudfix-cf-AppServer/InstanceSecurityGroup",
+            "SecurityGroupEgress": [
+               {
+                  "CidrIp": "0.0.0.0/0",
+                  "Description": "Allow all outbound traffic by default",
+                  "IpProtocol": "-1"
+               }
+            ],
+            "Tags": [
+               {
+                  "Key": "Name",
+                  "Value": "CfDemoStack/cloudfix-cf-AppServer"
+               },
+               {
+                  "Key": "Owner",
+                  "Value": "ankush.pandey@trilogy.com"
+               },
+               {
+                  "Key": "Project",
+                  "Value": "cloudfix-linter-cdk"
+               }
+            ],
+            "VpcId": "vpc-02badd8abb988e06e"
+         },
+         "Metadata": {
+            "aws:cdk:path": "CfDemoStack/cloudfix-cf-AppServer/InstanceSecurityGroup/Resource"
+         }
+      },
+      "cloudfixcfAppServerInstanceRoleF9F24B94": {
+         "Type": "AWS::IAM::Role",
+         "Properties": {
+            "AssumeRolePolicyDocument": {
+               "Statement": [
+                  {
+                     "Action": "sts:AssumeRole",
+                     "Effect": "Allow",
+                     "Principal": {
+                        "Service": {
+                           "Fn::Join": [
+                              "",
+                              [
+                                 "ec2.",
+                                 {
+                                    "Ref": "AWS::URLSuffix"
+                                 }
+                              ]
+                           ]
+                        }
+                     }
+                  }
+               ],
+               "Version": "2012-10-17"
+            },
+            "Tags": [
+               {
+                  "Key": "Name",
+                  "Value": "CfDemoStack/cloudfix-cf-AppServer"
+               },
+               {
+                  "Key": "Owner",
+                  "Value": "ankush.pandey@trilogy.com"
+               },
+               {
+                  "Key": "Project",
+                  "Value": "cloudfix-linter-cdk"
+               }
+            ]
+         },
+         "Metadata": {
+            "aws:cdk:path": "CfDemoStack/cloudfix-cf-AppServer/InstanceRole/Resource"
+         }
+      },
+      "cloudfixcfAppServerInstanceProfileBF4AA31E": {
+         "Type": "AWS::IAM::InstanceProfile",
+         "Properties": {
+            "Roles": [
+               {
+                  "Ref": "cloudfixcfAppServerInstanceRoleF9F24B94"
+               }
+            ]
+         },
+         "Metadata": {
+            "aws:cdk:path": "CfDemoStack/cloudfix-cf-AppServer/InstanceProfile"
+         }
+      },
+      "cloudfixcfAppServerCA2B5C92": {
+         "Type": "AWS::EC2::Instance",
+         "Properties": {
+            "AvailabilityZone": "us-east-1a",
+            "IamInstanceProfile": {
+               "Ref": "cloudfixcfAppServerInstanceProfileBF4AA31E"
+            },
+            "ImageId": {
+               "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter"
+            },
+            "InstanceType": "t2.micro",
+            "SecurityGroupIds": [
+               {
+                  "Fn::GetAtt": [
+                     "cloudfixcfAppServerInstanceSecurityGroup90F84EBB",
+                     "GroupId"
+                  ]
+               }
+            ],
+            "SubnetId": "subnet-0a1186feed91f0165",
+            "Tags": [
+               {
+                  "Key": "Name",
+                  "Value": "CfDemoStack/cloudfix-cf-AppServer"
+               },
+               {
+                  "Key": "Owner",
+                  "Value": "ankush.pandey@trilogy.com"
+               },
+               {
+                  "Key": "Project",
+                  "Value": "cloudfix-linter-cdk"
+               }
+            ],
+            "UserData": {
+               "Fn::Base64": "#!/bin/bash"
+            }
+         },
+         "DependsOn": [
+            "cloudfixcfAppServerInstanceRoleF9F24B94"
+         ],
+         "Metadata": {
+            "aws:cdk:path": "CfDemoStack/cloudfix-cf-AppServer/Resource"
+         }
+      },
+      "cloudfixcfinstanceappserverInstanceSecurityGroup0A7C720F": {
+         "Type": "AWS::EC2::SecurityGroup",
+         "Properties": {
+            "GroupDescription": "CfDemoStack/cloudfix-cf-instance-appserver/InstanceSecurityGroup",
+            "SecurityGroupEgress": [
+               {
+                  "CidrIp": "0.0.0.0/0",
+                  "Description": "Allow all outbound traffic by default",
+                  "IpProtocol": "-1"
+               }
+            ],
+            "Tags": [
+               {
+                  "Key": "Name",
+                  "Value": "CfDemoStack/cloudfix-cf-instance-appserver"
+               },
+               {
+                  "Key": "Owner",
+                  "Value": "ankush.pandey@trilogy.com"
+               },
+               {
+                  "Key": "Project",
+                  "Value": "cloudfix-linter-cdk"
+               }
+            ],
+            "VpcId": "vpc-02badd8abb988e06e"
+         },
+         "Metadata": {
+            "aws:cdk:path": "CfDemoStack/cloudfix-cf-instance-appserver/InstanceSecurityGroup/Resource"
+         }
+      },
+      "cloudfixcfinstanceappserverInstanceRole8E6E2D49": {
+         "Type": "AWS::IAM::Role",
+         "Properties": {
+            "AssumeRolePolicyDocument": {
+               "Statement": [
+                  {
+                     "Action": "sts:AssumeRole",
+                     "Effect": "Allow",
+                     "Principal": {
+                        "Service": {
+                           "Fn::Join": [
+                              "",
+                              [
+                                 "ec2.",
+                                 {
+                                    "Ref": "AWS::URLSuffix"
+                                 }
+                              ]
+                           ]
+                        }
+                     }
+                  }
+               ],
+               "Version": "2012-10-17"
+            },
+            "Tags": [
+               {
+                  "Key": "Name",
+                  "Value": "CfDemoStack/cloudfix-cf-instance-appserver"
+               },
+               {
+                  "Key": "Owner",
+                  "Value": "ankush.pandey@trilogy.com"
+               },
+               {
+                  "Key": "Project",
+                  "Value": "cloudfix-linter-cdk"
+               }
+            ]
+         },
+         "Metadata": {
+            "aws:cdk:path": "CfDemoStack/cloudfix-cf-instance-appserver/InstanceRole/Resource"
+         }
+      },
+      "cloudfixcfinstanceappserverInstanceProfile2F003956": {
+         "Type": "AWS::IAM::InstanceProfile",
+         "Properties": {
+            "Roles": [
+               {
+                  "Ref": "cloudfixcfinstanceappserverInstanceRole8E6E2D49"
+               }
+            ]
+         },
+         "Metadata": {
+            "aws:cdk:path": "CfDemoStack/cloudfix-cf-instance-appserver/InstanceProfile"
+         }
+      },
+      "cloudfixcfinstanceappserver6748D195": {
+         "Type": "AWS::EC2::Instance",
+         "Properties": {
+            "AvailabilityZone": "us-east-1a",
+            "IamInstanceProfile": {
+               "Ref": "cloudfixcfinstanceappserverInstanceProfile2F003956"
+            },
+            "ImageId": {
+               "Fn::FindInMap": [
+                  "cloudfixcfinstanceappserverAmiMap4C1EB744",
+                  {
+                     "Ref": "AWS::Region"
+                  },
+                  "ami"
+               ]
+            },
+            "InstanceType": "t2.micro",
+            "SecurityGroupIds": [
+               {
+                  "Fn::GetAtt": [
+                     "cloudfixcfinstanceappserverInstanceSecurityGroup0A7C720F",
+                     "GroupId"
+                  ]
+               }
+            ],
+            "SubnetId": "subnet-0a1186feed91f0165",
+            "Tags": [
+               {
+                  "Key": "Name",
+                  "Value": "CfDemoStack/cloudfix-cf-instance-appserver"
+               },
+               {
+                  "Key": "Owner",
+                  "Value": "ankush.pandey@trilogy.com"
+               },
+               {
+                  "Key": "Project",
+                  "Value": "cloudfix-linter-cdk"
+               }
+            ],
+            "UserData": {
+               "Fn::Base64": "#!/bin/bash"
+            }
+         },
+         "DependsOn": [
+            "cloudfixcfinstanceappserverInstanceRole8E6E2D49"
+         ],
+         "Metadata": {
+            "aws:cdk:path": "CfDemoStack/cloudfix-cf-instance-appserver/Resource"
+         }
+      },
+      "cloudfixcfNatgateway": {
+         "Type": "AWS::EC2::NatGateway",
+         "Properties": {
+            "SubnetId": "subnet-0ad82a9a46e5aaf68",
+            "ConnectivityType": "private",
+            "Tags": [
+               {
+                  "Key": "Owner",
+                  "Value": "ankush.pandey@trilogy.com"
+               },
+               {
+                  "Key": "Project",
+                  "Value": "cloudfix-linter-cdk"
+               }
+            ]
+         },
+         "Metadata": {
+            "aws:cdk:path": "CfDemoStack/cloudfix-cf-Natgateway"
+         }
+      },
+      "cloudfixcfMyVpcEndpoint2B3B0E98": {
+         "Type": "AWS::EC2::VPCEndpoint",
+         "Properties": {
+            "ServiceName": "com.amazonaws.us-east-1.s3",
+            "VpcId": "vpc-02badd8abb988e06e",
+            "RouteTableIds": [
+               "rtb-055316860c9497d01",
+               "rtb-08f90b2a360aeb299"
+            ],
+            "VpcEndpointType": "Gateway"
+         },
+         "Metadata": {
+            "aws:cdk:path": "CfDemoStack/cloudfix-cf-MyVpcEndpoint/Resource"
+         }
+      },
+      "cloudfixcfs318F2DAC6D": {
+         "Type": "AWS::S3::Bucket",
+         "Properties": {
+            "AccessControl": "Private",
+            "BucketName": "cloudfix-s3-bucket-1",
+            "Tags": [
+               {
+                  "Key": "Owner",
+                  "Value": "ankush.pandey@trilogy.com"
+               },
+               {
+                  "Key": "Project",
+                  "Value": "cloudfix-linter-cdk"
+               }
+            ],
+            "VersioningConfiguration": {
+               "Status": "Enabled"
+            }
+         },
+         "UpdateReplacePolicy": "Retain",
+         "DeletionPolicy": "Retain",
+         "Metadata": {
+            "aws:cdk:path": "CfDemoStack/cloudfix-cf-s3-1/Resource"
+         }
+      },
+      "cloudfixcfs32BA22A389": {
+         "Type": "AWS::S3::Bucket",
+         "Properties": {
+            "AccessControl": "PublicReadWrite",
+            "BucketEncryption": {
+               "ServerSideEncryptionConfiguration": [
+                  {
+                     "ServerSideEncryptionByDefault": {
+                        "SSEAlgorithm": "AES256"
+                     }
+                  }
+               ]
+            },
+            "BucketName": "cloudfix-s3-bucket-2",
+            "Tags": [
+               {
+                  "Key": "Owner",
+                  "Value": "ankush.pandey@trilogy.com"
+               },
+               {
+                  "Key": "Project",
+                  "Value": "cloudfix-linter-cdk"
+               }
+            ],
+            "VersioningConfiguration": {
+               "Status": "Enabled"
+            }
+         },
+         "UpdateReplacePolicy": "Retain",
+         "DeletionPolicy": "Retain",
+         "Metadata": {
+            "aws:cdk:path": "CfDemoStack/cloudfix-cf-s3-2/Resource"
+         }
+      },
+      "cloudfixcfMyFileSystem506E3CC5": {
+         "Type": "AWS::EFS::FileSystem",
+         "Properties": {
+            "Encrypted": true,
+            "FileSystemTags": [
+               {
+                  "Key": "Name",
+                  "Value": "CfDemoStack/cloudfix-cf-MyFileSystem"
+               },
+               {
+                  "Key": "Owner",
+                  "Value": "ankush.pandey@trilogy.com"
+               },
+               {
+                  "Key": "Project",
+                  "Value": "cloudfix-linter-cdk"
+               }
+            ]
+         },
+         "UpdateReplacePolicy": "Retain",
+         "DeletionPolicy": "Retain",
+         "Metadata": {
+            "aws:cdk:path": "CfDemoStack/cloudfix-cf-MyFileSystem/Resource"
+         }
+      },
+      "cloudfixcfMyFileSystemEfsSecurityGroup20E8E2D7": {
+         "Type": "AWS::EC2::SecurityGroup",
+         "Properties": {
+            "GroupDescription": "CfDemoStack/cloudfix-cf-MyFileSystem/EfsSecurityGroup",
+            "SecurityGroupEgress": [
+               {
+                  "CidrIp": "0.0.0.0/0",
+                  "Description": "Allow all outbound traffic by default",
+                  "IpProtocol": "-1"
+               }
+            ],
+            "Tags": [
+               {
+                  "Key": "Name",
+                  "Value": "CfDemoStack/cloudfix-cf-MyFileSystem"
+               },
+               {
+                  "Key": "Owner",
+                  "Value": "ankush.pandey@trilogy.com"
+               },
+               {
+                  "Key": "Project",
+                  "Value": "cloudfix-linter-cdk"
+               }
+            ],
+            "VpcId": "vpc-02badd8abb988e06e"
+         },
+         "Metadata": {
+            "aws:cdk:path": "CfDemoStack/cloudfix-cf-MyFileSystem/EfsSecurityGroup/Resource"
+         }
+      },
+      "cloudfixcfMyFileSystemEfsMountTarget15A64BFC9": {
+         "Type": "AWS::EFS::MountTarget",
+         "Properties": {
+            "FileSystemId": {
+               "Ref": "cloudfixcfMyFileSystem506E3CC5"
+            },
+            "SecurityGroups": [
+               {
+                  "Fn::GetAtt": [
+                     "cloudfixcfMyFileSystemEfsSecurityGroup20E8E2D7",
+                     "GroupId"
+                  ]
+               }
+            ],
+            "SubnetId": "subnet-0a1186feed91f0165"
+         },
+         "Metadata": {
+            "aws:cdk:path": "CfDemoStack/cloudfix-cf-MyFileSystem/EfsMountTarget1"
+         }
+      },
+      "CDKMetadata": {
+         "Type": "AWS::CDK::Metadata",
+         "Properties": {
+            "Analytics": "v2:deflate64:H4sIAAAAAAAA/2WQzWrDMBCEnyV3WU2dPkFNG3poMXbItWykTdjYkox+Gozwu1eW49LS08yOPoZBJd898XIDN1cI2RU9nXhsPYiOpegzylGDMjKFBzj1yKqzzmZiKEoej6YPKqd396adBy2QtSiCJT/urQnDDPwLftDkP8DvweMNRnbX4yBetBwMaZ/r62o9J0ageGzMMmfVta625kzzQLfj8TmIDnPB4tLss+PxNQHt6Dyq+env9W6C9gewl0RPrEFngl1G1mBBoUebMRgG0pe84BdTGS3Jk9ET00Yiv7qHr8f0wVu+3VwdUWFTOynkzaLfdwbkAH8BAAA="
+         },
+         "Metadata": {
+            "aws:cdk:path": "CfDemoStack/CDKMetadata/Default"
+         },
+         "Condition": "CDKMetadataAvailable"
+      }
+   },
+   "Parameters": {
+      "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter": {
+         "Type": "AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>",
+         "Default": "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
+      },
+      "BootstrapVersion": {
+         "Type": "AWS::SSM::Parameter::Value<String>",
+         "Default": "/cdk-bootstrap/hnb659fds/version",
+         "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+      }
+   },
+   "Mappings": {
+      "cloudfixcfinstanceappserverAmiMap4C1EB744": {
+         "us-east-1": {
+            "ami": "ami-09d56f8956ab235b3"
+         }
+      }
+   },
+   "Conditions": {
+      "CDKMetadataAvailable": {
+         "Fn::Or": [
+            {
+               "Fn::Or": [
+                  {
+                     "Fn::Equals": [
+                        {
+                           "Ref": "AWS::Region"
+                        },
+                        "af-south-1"
+                     ]
+                  },
+                  {
+                     "Fn::Equals": [
+                        {
+                           "Ref": "AWS::Region"
+                        },
+                        "ap-east-1"
+                     ]
+                  },
+                  {
+                     "Fn::Equals": [
+                        {
+                           "Ref": "AWS::Region"
+                        },
+                        "ap-northeast-1"
+                     ]
+                  },
+                  {
+                     "Fn::Equals": [
+                        {
+                           "Ref": "AWS::Region"
+                        },
+                        "ap-northeast-2"
+                     ]
+                  },
+                  {
+                     "Fn::Equals": [
+                        {
+                           "Ref": "AWS::Region"
+                        },
+                        "ap-south-1"
+                     ]
+                  },
+                  {
+                     "Fn::Equals": [
+                        {
+                           "Ref": "AWS::Region"
+                        },
+                        "ap-southeast-1"
+                     ]
+                  },
+                  {
+                     "Fn::Equals": [
+                        {
+                           "Ref": "AWS::Region"
+                        },
+                        "ap-southeast-2"
+                     ]
+                  },
+                  {
+                     "Fn::Equals": [
+                        {
+                           "Ref": "AWS::Region"
+                        },
+                        "ca-central-1"
+                     ]
+                  },
+                  {
+                     "Fn::Equals": [
+                        {
+                           "Ref": "AWS::Region"
+                        },
+                        "cn-north-1"
+                     ]
+                  },
+                  {
+                     "Fn::Equals": [
+                        {
+                           "Ref": "AWS::Region"
+                        },
+                        "cn-northwest-1"
+                     ]
+                  }
+               ]
+            },
+            {
+               "Fn::Or": [
+                  {
+                     "Fn::Equals": [
+                        {
+                           "Ref": "AWS::Region"
+                        },
+                        "eu-central-1"
+                     ]
+                  },
+                  {
+                     "Fn::Equals": [
+                        {
+                           "Ref": "AWS::Region"
+                        },
+                        "eu-north-1"
+                     ]
+                  },
+                  {
+                     "Fn::Equals": [
+                        {
+                           "Ref": "AWS::Region"
+                        },
+                        "eu-south-1"
+                     ]
+                  },
+                  {
+                     "Fn::Equals": [
+                        {
+                           "Ref": "AWS::Region"
+                        },
+                        "eu-west-1"
+                     ]
+                  },
+                  {
+                     "Fn::Equals": [
+                        {
+                           "Ref": "AWS::Region"
+                        },
+                        "eu-west-2"
+                     ]
+                  },
+                  {
+                     "Fn::Equals": [
+                        {
+                           "Ref": "AWS::Region"
+                        },
+                        "eu-west-3"
+                     ]
+                  },
+                  {
+                     "Fn::Equals": [
+                        {
+                           "Ref": "AWS::Region"
+                        },
+                        "me-south-1"
+                     ]
+                  },
+                  {
+                     "Fn::Equals": [
+                        {
+                           "Ref": "AWS::Region"
+                        },
+                        "sa-east-1"
+                     ]
+                  },
+                  {
+                     "Fn::Equals": [
+                        {
+                           "Ref": "AWS::Region"
+                        },
+                        "us-east-1"
+                     ]
+                  },
+                  {
+                     "Fn::Equals": [
+                        {
+                           "Ref": "AWS::Region"
+                        },
+                        "us-east-2"
+                     ]
+                  }
+               ]
+            },
+            {
+               "Fn::Or": [
+                  {
+                     "Fn::Equals": [
+                        {
+                           "Ref": "AWS::Region"
+                        },
+                        "us-west-1"
+                     ]
+                  },
+                  {
+                     "Fn::Equals": [
+                        {
+                           "Ref": "AWS::Region"
+                        },
+                        "us-west-2"
+                     ]
+                  }
+               ]
+            }
+         ]
+      }
+   },
+   "Rules": {
+      "CheckBootstrapVersion": {
+         "Assertions": [
+            {
+               "Assert": {
+                  "Fn::Not": [
+                     {
+                        "Fn::Contains": [
+                           [
+                              "1",
+                              "2",
+                              "3",
+                              "4",
+                              "5"
+                           ],
+                           {
+                              "Ref": "BootstrapVersion"
+                           }
+                        ]
+                     }
+                  ]
+               },
+               "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+            }
+         ]
+      }
+   }
+}

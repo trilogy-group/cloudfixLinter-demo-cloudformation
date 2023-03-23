@@ -8,6 +8,7 @@ import subprocess
 
 argumentList = sys.argv[1:]
 
+
 def generate_volume_reco(region, account, resource_id, resource_name):
     return {
         "id": str(uuid.uuid4()),
@@ -30,8 +31,9 @@ def generate_volume_reco(region, account, resource_id, resource_name):
         "opportunityType": "Gp2Gp3",
         "opportunityDescription": "EBS GP2 to Gp3",
         "generatedDate": "2022-06-20T07:01:17.274Z",
-        "lastUpdatedDate": "2022-06-20T07:01:17.274Z"
+        "lastUpdatedDate": "2022-06-20T07:01:17.274Z",
     }
+
 
 def generate_intel_to_amd_reco(region, account, resource_id, resource_name):
     return {
@@ -49,7 +51,7 @@ def generate_intel_to_amd_reco(region, account, resource_id, resource_name):
         "status": "Manual Approval",
         "parameters": {
             "Migrating to instance type": "t3a.micro",
-            "Has recent snapshot": True
+            "Has recent snapshot": True,
         },
         "templateApproved": True,
         "customerId": 5,
@@ -58,8 +60,9 @@ def generate_intel_to_amd_reco(region, account, resource_id, resource_name):
         "opportunityType": "Ec2IntelToAmd",
         "opportunityDescription": "EC2 Intel to AMD",
         "generatedDate": "2022-05-06T12:10:11.568Z",
-        "lastUpdatedDate": "2022-06-20T07:01:21.847Z"
+        "lastUpdatedDate": "2022-06-20T07:01:21.847Z",
     }
+
 
 def generate_s3_reco(region, account, resource_id, resource_name):
     return {
@@ -83,8 +86,9 @@ def generate_s3_reco(region, account, resource_id, resource_name):
         "opportunityType": "StandardToSIT",
         "opportunityDescription": "Intelligent Tiering for S3",
         "generatedDate": "2022-06-20T07:01:17.274Z",
-        "lastUpdatedDate": "2022-06-20T07:01:17.274Z"
+        "lastUpdatedDate": "2022-06-20T07:01:17.274Z",
     }
+
 
 def generate_efs_ia_reco(region, account, resource_id, resource_name):
     return {
@@ -108,8 +112,9 @@ def generate_efs_ia_reco(region, account, resource_id, resource_name):
         "opportunityType": "EfsInfrequentAccess",
         "opportunityDescription": "Intelligent Tiering for EFS",
         "generatedDate": "2022-06-20T07:01:17.274Z",
-        "lastUpdatedDate": "2022-06-20T07:01:17.274Z"
+        "lastUpdatedDate": "2022-06-20T07:01:17.274Z",
     }
+
 
 def generate_io_to_gp3_reco(region, account, resource_id, resource_name):
     return {
@@ -141,8 +146,9 @@ def generate_io_to_gp3_reco(region, account, resource_id, resource_name):
         "parameters": {},
         "isTemplateApproved": True,
         "autoApproved": True,
-        "isTemplateAvailable": True
+        "isTemplateAvailable": True,
     }
+
 
 def generate_unused_ebs_volume_reco(region, account, resource_id, resource_name):
     return {
@@ -174,8 +180,9 @@ def generate_unused_ebs_volume_reco(region, account, resource_id, resource_name)
         "parameters": {},
         "isTemplateApproved": True,
         "autoApproved": True,
-        "isTemplateAvailable": True
+        "isTemplateAvailable": True,
     }
+
 
 def generate_vpc_idle_endpoint_recco(region, account, resource_id, resource_name):
     return {
@@ -207,8 +214,9 @@ def generate_vpc_idle_endpoint_recco(region, account, resource_id, resource_name
         "parameters": {},
         "isTemplateApproved": True,
         "autoApproved": False,
-        "isTemplateAvailable": True
+        "isTemplateAvailable": True,
     }
+
 
 def generate_cloudtrail_recco(region, account, resource_id, resource_name):
     return {
@@ -240,8 +248,10 @@ def generate_cloudtrail_recco(region, account, resource_id, resource_name):
         "parameters": {},
         "isTemplateApproved": True,
         "autoApproved": True,
-        "isTemplateAvailable": True
+        "isTemplateAvailable": True,
     }
+
+
 def generate_efs_intelli_tiering_recco(region, account, resource_id, resource_name):
     return {
         "id": str(uuid.uuid4()),
@@ -273,8 +283,9 @@ def generate_efs_intelli_tiering_recco(region, account, resource_id, resource_na
         "isTemplateApproved": False,
         "autoApproved": True,
         "isTemplateAvailable": True,
-        "approverLink": "https://signin.aws.amazon.com/switchrole?account=610092376560&roleName=cloudfix-fixer-approver-role&displayName=TemplateApproval&redirect_uri=https%3A%2F%2Fus-east-1.console.aws.amazon.com%2Fsystems-manager%2Fchange-manager%3Fregion%3Dus-east-1%23%2Fchange-template%2Fview-details%2FCloudfix-Template-EfsIntelligentTiering-prod%2Fdetails"
+        "approverLink": "https://signin.aws.amazon.com/switchrole?account=610092376560&roleName=cloudfix-fixer-approver-role&displayName=TemplateApproval&redirect_uri=https%3A%2F%2Fus-east-1.console.aws.amazon.com%2Fsystems-manager%2Fchange-manager%3Fregion%3Dus-east-1%23%2Fchange-template%2Fview-details%2FCloudfix-Template-EfsIntelligentTiering-prod%2Fdetails",
     }
+
 
 def generate_neptune_idle_cluster_reco(region, account, resource_id, resource_name):
     return {
@@ -306,8 +317,9 @@ def generate_neptune_idle_cluster_reco(region, account, resource_id, resource_na
         "parameters": {},
         "isTemplateApproved": True,
         "autoApproved": True,
-        "isTemplateAvailable": True
+        "isTemplateAvailable": True,
     }
+
 
 def generate_dynamo_db_provisioning_reco(region, account, resource_id, resource_name):
     return {
@@ -339,10 +351,13 @@ def generate_dynamo_db_provisioning_reco(region, account, resource_id, resource_
         "parameters": {},
         "isTemplateApproved": True,
         "autoApproved": False,
-        "isTemplateAvailable": True
+        "isTemplateAvailable": True,
     }
 
-def generate_install_ssm_agent_windows_recco(region, account, resource_id, resource_name):
+
+def generate_install_ssm_agent_windows_recco(
+    region, account, resource_id, resource_name
+):
     return {
         "id": str(uuid.uuid4()),
         "customerId": 10002,
@@ -372,10 +387,13 @@ def generate_install_ssm_agent_windows_recco(region, account, resource_id, resou
         "parameters": {},
         "isTemplateApproved": True,
         "autoApproved": True,
-        "isTemplateAvailable": True
+        "isTemplateAvailable": True,
     }
 
-def generate_install_ssm_agent_mac_linux_recco(region, account, resource_id, resource_name):
+
+def generate_install_ssm_agent_mac_linux_recco(
+    region, account, resource_id, resource_name
+):
     return {
         "id": str(uuid.uuid4()),
         "customerId": 10002,
@@ -405,8 +423,9 @@ def generate_install_ssm_agent_mac_linux_recco(region, account, resource_id, res
         "parameters": {},
         "isTemplateApproved": True,
         "autoApproved": True,
-        "isTemplateAvailable": True
+        "isTemplateAvailable": True,
     }
+
 
 def generate_vpc_nat_gateway_recco(region, account, resource_id, resource_name):
     return {
@@ -438,8 +457,9 @@ def generate_vpc_nat_gateway_recco(region, account, resource_id, resource_name):
         "parameters": {},
         "isTemplateApproved": True,
         "autoApproved": True,
-        "isTemplateAvailable": True
+        "isTemplateAvailable": True,
     }
+
 
 def generate_vpc_dns_agents_recco(region, account, resource_id, resource_name):
     return {
@@ -471,8 +491,9 @@ def generate_vpc_dns_agents_recco(region, account, resource_id, resource_name):
         "parameters": {},
         "isTemplateApproved": True,
         "autoApproved": False,
-        "isTemplateAvailable": True
+        "isTemplateAvailable": True,
     }
+
 
 def generate_es_optimize_storage_recco(region, account, resource_id, resource_name):
     return {
@@ -504,10 +525,13 @@ def generate_es_optimize_storage_recco(region, account, resource_id, resource_na
         "parameters": {},
         "isTemplateApproved": True,
         "autoApproved": False,
-        "isTemplateAvailable": True
+        "isTemplateAvailable": True,
     }
 
-def generate_s3_ddb_traffic_to_gw_end_point_recco(region, account, resource_id, resource_name):
+
+def generate_s3_ddb_traffic_to_gw_end_point_recco(
+    region, account, resource_id, resource_name
+):
     return {
         "id": str(uuid.uuid4()),
         "customerId": 10002,
@@ -537,8 +561,9 @@ def generate_s3_ddb_traffic_to_gw_end_point_recco(region, account, resource_id, 
         "parameters": {},
         "isTemplateApproved": True,
         "autoApproved": True,
-        "isTemplateAvailable": True
+        "isTemplateAvailable": True,
     }
+
 
 def generate_ec2_low_risk_right_size_recco(region, account, resource_id, resource_name):
     return {
@@ -570,43 +595,47 @@ def generate_ec2_low_risk_right_size_recco(region, account, resource_id, resourc
         "parameters": {},
         "isTemplateApproved": True,
         "autoApproved": True,
-        "isTemplateAvailable": True
+        "isTemplateAvailable": True,
     }
 
-def generate_archive_old_ebs_volume_snapshot_recco(region, account, resource_id, resource_name):
-    return {
-        "id": str(uuid.uuid4()),
-        "customerId": 10002,
-        "accountId": "724994046559",
-        "accountNickname": "Dev-Think3-Agemni",
-        "opportunityType": "ArchiveOldEbsVolumeSnapshots",
-        "opportunityId": "",
-        "region": region,
-        "organizationalUnitName": "Non Production",
-        "opportunityDescription": "Archive old EBS volume snapshots.",
-        "primaryImpactedNodeId": resource_id,
-        "otherImpactedNodeIds": [],
-        "resourceId": resource_id,
-        "resourceName": resource_name,
-        "difficulty": 1,
-        "risk": 1,
-        "applicationEnvironment": "prod",
-        "annualSavings": 90.74,
-        "annualCost": 92,
-        "actualSavings": None,
-        "changeRequestId": "oi-55346e1a0082",
-        "changeRequestStatus": "CompletedWithSuccess",
-        "createdAt": "2022-12-04T01:05:11.000Z",
-        "updatedAt": "2022-12-05T03:19:41.000Z",
-        "status": "Completed",
-        "scheduledAt": "2022-12-05T03:19:36.000Z",
-        "parameters": {},
-        "isTemplateApproved": True,
-        "autoApproved": True,
-        "isTemplateAvailable": True
-    }
 
-def generate_dynamo_db_infrequent_access_recco(region, account, resource_id, resource_name):
+# def generate_archive_old_ebs_volume_snapshot_recco(region, account, resource_id, resource_name):
+#     return {
+#         "id": str(uuid.uuid4()),
+#         "customerId": 10002,
+#         "accountId": "724994046559",
+#         "accountNickname": "Dev-Think3-Agemni",
+#         "opportunityType": "ArchiveOldEbsVolumeSnapshots",
+#         "opportunityId": "",
+#         "region": region,
+#         "organizationalUnitName": "Non Production",
+#         "opportunityDescription": "Archive old EBS volume snapshots.",
+#         "primaryImpactedNodeId": resource_id,
+#         "otherImpactedNodeIds": [],
+#         "resourceId": resource_id,
+#         "resourceName": resource_name,
+#         "difficulty": 1,
+#         "risk": 1,
+#         "applicationEnvironment": "prod",
+#         "annualSavings": 90.74,
+#         "annualCost": 92,
+#         "actualSavings": None,
+#         "changeRequestId": "oi-55346e1a0082",
+#         "changeRequestStatus": "CompletedWithSuccess",
+#         "createdAt": "2022-12-04T01:05:11.000Z",
+#         "updatedAt": "2022-12-05T03:19:41.000Z",
+#         "status": "Completed",
+#         "scheduledAt": "2022-12-05T03:19:36.000Z",
+#         "parameters": {},
+#         "isTemplateApproved": True,
+#         "autoApproved": True,
+#         "isTemplateAvailable": True
+#     }
+
+
+def generate_dynamo_db_infrequent_access_recco(
+    region, account, resource_id, resource_name
+):
     return {
         "id": str(uuid.uuid4()),
         "customerId": 10002,
@@ -636,10 +665,13 @@ def generate_dynamo_db_infrequent_access_recco(region, account, resource_id, res
         "parameters": {},
         "isTemplateApproved": True,
         "autoApproved": True,
-        "isTemplateAvailable": True
+        "isTemplateAvailable": True,
     }
 
-def generate_instance_profile_for_agents_recco(region, account, resource_id, resource_name):
+
+def generate_instance_profile_for_agents_recco(
+    region, account, resource_id, resource_name
+):
     return {
         "id": str(uuid.uuid4()),
         "customerId": 10002,
@@ -669,8 +701,9 @@ def generate_instance_profile_for_agents_recco(region, account, resource_id, res
         "parameters": {},
         "isTemplateApproved": True,
         "autoApproved": False,
-        "isTemplateAvailable": True
+        "isTemplateAvailable": True,
     }
+
 
 def generate_es_graviton_recco(region, account, resource_id, resource_name):
     return {
@@ -702,8 +735,9 @@ def generate_es_graviton_recco(region, account, resource_id, resource_name):
         "parameters": {},
         "isTemplateApproved": True,
         "autoApproved": True,
-        "isTemplateAvailable": True
+        "isTemplateAvailable": True,
     }
+
 
 def generate_cloudfront_compression_recco(region, account, resource_id, resource_name):
     return {
@@ -735,8 +769,9 @@ def generate_cloudfront_compression_recco(region, account, resource_id, resource
         "parameters": {},
         "isTemplateApproved": True,
         "autoApproved": False,
-        "isTemplateAvailable": True
+        "isTemplateAvailable": True,
     }
+
 
 def generate_elb_cleanup_idle_recco(region, account, resource_id, resource_name):
     return {
@@ -768,8 +803,9 @@ def generate_elb_cleanup_idle_recco(region, account, resource_id, resource_name)
         "parameters": {},
         "isTemplateApproved": True,
         "autoApproved": False,
-        "isTemplateAvailable": True
+        "isTemplateAvailable": True,
     }
+
 
 def generate_ec2_cleanup_unused_amis_recco(region, account, resource_id, resource_name):
     return {
@@ -801,10 +837,13 @@ def generate_ec2_cleanup_unused_amis_recco(region, account, resource_id, resourc
         "parameters": {},
         "isTemplateApproved": True,
         "autoApproved": False,
-        "isTemplateAvailable": True
+        "isTemplateAvailable": True,
     }
 
-def generate_opensearch_right_size_clusters_recco(region, account, resource_id, resource_name):
+
+def generate_opensearch_right_size_clusters_recco(
+    region, account, resource_id, resource_name
+):
     return {
         "id": str(uuid.uuid4()),
         "customerId": 10002,
@@ -834,10 +873,13 @@ def generate_opensearch_right_size_clusters_recco(region, account, resource_id, 
         "parameters": {},
         "isTemplateApproved": True,
         "autoApproved": False,
-        "isTemplateAvailable": True
+        "isTemplateAvailable": True,
     }
 
-def generate_rds_right_size_mysql_clusters_recco(region, account, resource_id, resource_name):
+
+def generate_rds_right_size_mysql_clusters_recco(
+    region, account, resource_id, resource_name
+):
     return {
         "id": str(uuid.uuid4()),
         "customerId": 10002,
@@ -867,81 +909,131 @@ def generate_rds_right_size_mysql_clusters_recco(region, account, resource_id, r
         "parameters": {},
         "isTemplateApproved": True,
         "autoApproved": False,
-        "isTemplateAvailable": True
+        "isTemplateAvailable": True,
     }
 
+
 def generate_recos(item):
-    if 'LogicalResourceId' in item and 'PhysicalResourceId' in item:
-        logical_id = item['LogicalResourceId']
-        physical_id = item['PhysicalResourceId']
+    if "LogicalResourceId" in item and "PhysicalResourceId" in item:
+        logical_id = item["LogicalResourceId"]
+        physical_id = item["PhysicalResourceId"]
     else:
         return
 
-    if item['ResourceType'] == 'AWS::EC2::Volume':
-        return [generate_volume_reco(region, account_id, physical_id, logical_id),
-        # generate_io_to_gp3_reco(region, account_id, physical_id, logical_id),
-        generate_unused_ebs_volume_reco(region, account_id, physical_id, logical_id),
-        generate_archive_old_ebs_volume_snapshot_recco(region, account_id, physical_id, logical_id),
+    if item["ResourceType"] == "AWS::EC2::Volume":
+        return [
+            generate_volume_reco(region, account_id, physical_id, logical_id),
+            # generate_io_to_gp3_reco(region, account_id, physical_id, logical_id),
+            generate_unused_ebs_volume_reco(
+                region, account_id, physical_id, logical_id
+            ),
+            # generate_archive_old_ebs_volume_snapshot_recco(region, account_id, physical_id, logical_id),
         ]
 
-    if item['ResourceType'] == 'AWS::EC2::Instance':
-        return [generate_intel_to_amd_reco(region, account_id, physical_id, logical_id),
-        # generate_install_ssm_agent_mac_linux_recco(region, account_id, physical_id, logical_id),
-        generate_install_ssm_agent_windows_recco(region, account_id, physical_id, logical_id),
-        # generate_ec2_low_risk_right_size_recco(region, account_id, physical_id, logical_id)
+    if item["ResourceType"] == "AWS::EC2::Instance":
+        return [
+            generate_intel_to_amd_reco(region, account_id, physical_id, logical_id),
+            # generate_install_ssm_agent_mac_linux_recco(region, account_id, physical_id, logical_id),
+            generate_install_ssm_agent_windows_recco(
+                region, account_id, physical_id, logical_id
+            ),
+            # generate_ec2_low_risk_right_size_recco(region, account_id, physical_id, logical_id)
         ]
 
-    if item['ResourceType'] == 'AWS::EC2::AMI':
-        return [generate_ec2_cleanup_unused_amis_recco(region, account_id, physical_id, logical_id)]
+    if item["ResourceType"] == "AWS::EC2::AMI":
+        return [
+            generate_ec2_cleanup_unused_amis_recco(
+                region, account_id, physical_id, logical_id
+            )
+        ]
 
-    if item['ResourceType'] == 'AWS::S3::Bucket':
+    if item["ResourceType"] == "AWS::S3::Bucket":
         return [generate_s3_reco(region, account_id, physical_id, logical_id)]
 
-    if item['ResourceType'] == 'AWS::EFS::FileSystem':
+    if item["ResourceType"] == "AWS::EFS::FileSystem":
         return [
             # generate_efs_ia_reco(region, account_id, physical_id, logical_id),
-        generate_efs_intelli_tiering_recco(region, account_id, physical_id, logical_id)
+            generate_efs_intelli_tiering_recco(
+                region, account_id, physical_id, logical_id
+            )
         ]
-    if item['ResourceType'] == 'AWS::Neptune::DBCluster':
-        return [generate_neptune_idle_cluster_reco(region, account_id, physical_id, logical_id)]
-        
-    if item['ResourceType'] == 'AWS::EC2::VPC':
-        return [generate_vpc_idle_endpoint_recco(region, account_id, physical_id, logical_id)]
+    if item["ResourceType"] == "AWS::Neptune::DBCluster":
+        return [
+            generate_neptune_idle_cluster_reco(
+                region, account_id, physical_id, logical_id
+            )
+        ]
 
-    if item['ResourceType'] == 'AWS::DynamoDB::GlobalTable' or item['ResourceType'] == 'AWS::DynamoDB::Table':
+    if item["ResourceType"] == "AWS::EC2::VPC":
+        return [
+            generate_vpc_idle_endpoint_recco(
+                region, account_id, physical_id, logical_id
+            )
+        ]
+
+    if (
+        item["ResourceType"] == "AWS::DynamoDB::GlobalTable"
+        or item["ResourceType"] == "AWS::DynamoDB::Table"
+    ):
         return [
             # generate_dynamo_db_infrequent_access_recco(region, account_id, physical_id, logical_id),
-            generate_dynamo_db_provisioning_reco(region, account_id, physical_id, logical_id)
+            generate_dynamo_db_provisioning_reco(
+                region, account_id, physical_id, logical_id
+            )
         ]
 
-    if item['ResourceType'] == 'AWS::CloudTrail::Trail':
+    if item["ResourceType"] == "AWS::CloudTrail::Trail":
         return [generate_cloudtrail_recco(region, account_id, physical_id, logical_id)]
 
-    if item['ResourceType'] == 'AWS::EC2::NatGateway':
-        return [generate_vpc_nat_gateway_recco(region, account_id, physical_id, logical_id),
-        generate_s3_ddb_traffic_to_gw_end_point_recco(region, account_id, physical_id, logical_id)
+    if item["ResourceType"] == "AWS::EC2::NatGateway":
+        return [
+            generate_vpc_nat_gateway_recco(region, account_id, physical_id, logical_id),
+            generate_s3_ddb_traffic_to_gw_end_point_recco(
+                region, account_id, physical_id, logical_id
+            ),
         ]
 
-    if item['ResourceType'] == 'AWS::OpenSearchService::Domain' or item['ResourceType'] == 'AWS::Elasticsearch::Domain':
-        return [generate_es_optimize_storage_recco(region, account_id, physical_id, logical_id),
-        # generate_es_graviton_recco(region, account_id, physical_id, logical_id),
-        # generate_opensearch_right_size_clusters_recco(region, account_id, physical_id, logical_id)
+    if (
+        item["ResourceType"] == "AWS::OpenSearchService::Domain"
+        or item["ResourceType"] == "AWS::Elasticsearch::Domain"
+    ):
+        return [
+            generate_es_optimize_storage_recco(
+                region, account_id, physical_id, logical_id
+            ),
+            # generate_es_graviton_recco(region, account_id, physical_id, logical_id),
+            # generate_opensearch_right_size_clusters_recco(region, account_id, physical_id, logical_id)
         ]
 
     # if item['ResourceType'] == 'aws_rds_cluster':
     #     return [generate_rds_right_size_mysql_clusters_recco(region, account_id, physical_id, logical_id)]
 
-    if item['ResourceType'] == 'AWS::ElasticLoadBalancing::LoadBalancer':
-        return [generate_elb_cleanup_idle_recco(region, account_id, physical_id, logical_id)]
+    if item["ResourceType"] == "AWS::ElasticLoadBalancing::LoadBalancer":
+        return [
+            generate_elb_cleanup_idle_recco(region, account_id, physical_id, logical_id)
+        ]
 
-    if item['ResourceType'] == 'AWS::CloudFront::Distribution':
-        return [generate_cloudfront_compression_recco(region, account_id, physical_id, logical_id)]
+    if item["ResourceType"] == "AWS::CloudFront::Distribution":
+        return [
+            generate_cloudfront_compression_recco(
+                region, account_id, physical_id, logical_id
+            )
+        ]
+
 
 try:
     # os.system("aws cloudformation describe-stack-resources --stack-name " + sys.argv[1])
     try:
-        output = subprocess.Popen(["aws", "cloudformation", "describe-stack-resources", "--stack-name", sys.argv[1]], 
-                            stdout=subprocess.PIPE).communicate()[0]
+        output = subprocess.Popen(
+            [
+                "aws",
+                "cloudformation",
+                "describe-stack-resources",
+                "--stack-name",
+                sys.argv[1],
+            ],
+            stdout=subprocess.PIPE,
+        ).communicate()[0]
         output = output.decode("utf-8")
     except Exception as e:
         traceback.print_exc()
@@ -955,11 +1047,10 @@ try:
     with open("./reccos.json", "w") as reco:
         for item in output["StackResources"]:
             r = generate_recos(item)
-            if r!=None:
+            if r != None:
                 recos.extend(r)
         print(str(len(recos)) + " mock Recommendations generated")
         reco.write(json.dumps(recos))
-    
+
 except Exception as e:
     traceback.print_exc()
-    

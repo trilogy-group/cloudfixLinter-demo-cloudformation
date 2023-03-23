@@ -1,4 +1,6 @@
 cloudfix-linter*
 .vscode
 .gitignore
+makefile
 reccos.json
+cloudfix-linter-rules.json
