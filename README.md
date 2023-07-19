@@ -53,7 +53,7 @@
       Default output format [None]:
       ```
 ### 3.  Setup SubnetId's for deploying resources    
-   - Before deploying your stack, you need to edit the `SubnetId` [here](./Templates1/cf-template.json#L22) for `cloudfix-linter-demo-cloudformation` stack and [all subnets in this file](https://github.com/trilogy-group/cloudfixLinter-demo-cloudformation/blob/newResources/README.md) for `CfDemoStack` stack to the id of a subnet that exists in your account and to which you would like to deploy the resources.
+   - Before deploying your stack, you need to replace the `SubnetId` [here](./Templates1/cf-template.json#L22) for `cloudfix-linter-demo-cloudformation` stack and [all subnets and vpcs in this file](https://github.com/trilogy-group/cloudfixLinter-demo-cloudformation/blob/newResources/README.md) for `CfDemoStack` stack to the id of a subnet that exists in your account and to which you would like to deploy the resources.
 
  ### 4. Stack Deployment    
 **Note : - For demo purpose we have already deployed a stack with name `CfDemoStack` for using `all-resources-template.json` and `cloudfix-linter-demo-cloudformation` for using `cf-template.json` with given template in Q3 of TrilogyAccount. You can use it for demo purpose, if you are a Trilogy account holder.**       
